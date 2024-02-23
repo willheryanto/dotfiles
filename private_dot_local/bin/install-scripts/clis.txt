@@ -1,0 +1,8 @@
+asdf
+chezmoi
+fd
+gh
+neovim
+powerlevel10k
+ripgrep
+tmux

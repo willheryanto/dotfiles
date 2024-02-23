@@ -1,0 +1,30 @@
+#!/bin/bash
+
+open 'karabiner://karabiner/assets/complex_modifications/import?url=https://raw.githubusercontent.com/Vonng/Capslock/master/mac_v3/capslock.json'
+
+# nnn
+git clone https://github.com/jarun/nnn "$HOME"/dev/github.com/
+sh -c "$(curl -Ls https://raw.githubusercontent.com/jarun/nnn/master/plugins/getplugs)"
+
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+asdf plugin add golang https://github.com/asdf-community/asdf-golang.git
+asdf plugin add python
+
+asdf install nodejs $(asdf nodejs resolve lts --latest-installed)
+asdf install golang $(asdf list-all golang | rg -v 'rc' | tail -n 1)
+asdf install python $(asdf list-all python | rg -v '[a-z]+' | tail -n 1)
+
+asdf global nodejs $(asdf list nodejs | sed 's/[ *]//g')
+asdf global golang $(asdf list golang | sed 's/[ *]//g')
+asdf global python $(asdf list python | sed 's/[ *]//g')
+asdf reshim
+
+npm install -g neovim
+pip install neovim
+
+# setup nvim
+chezmoi init --apply "$GITHUB_USERNAME"
+
+cat ./installed-apps.txt | xargs -n 1 open

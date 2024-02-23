@@ -1,0 +1,5 @@
+Amethyst.app
+Karabiner-Elements.app
+Raycast.app
+Scrolla.app
+Wooshy.app

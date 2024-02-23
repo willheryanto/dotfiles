@@ -1,0 +1,8 @@
+#!/bin/bash
+
+xargs -n 1 brew install <./app.txt
+xargs -n 1 brew install <./cli.txt
+
+brew install pkgconfig        # for node
+brew install xz               # for python
+brew install awscli aws-vault # AWS stuff

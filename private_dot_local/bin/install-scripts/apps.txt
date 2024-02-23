@@ -1,0 +1,7 @@
+amethyst
+arc
+karabiner-elements
+raycast
+scrolla
+wezterm
+wooshy
