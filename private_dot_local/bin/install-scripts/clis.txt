@@ -1,6 +1,7 @@
 asdf
 chezmoi
 fd
+fzf
 gh
 neovim
 powerlevel10k
