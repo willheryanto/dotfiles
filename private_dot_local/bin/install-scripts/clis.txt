@@ -3,7 +3,11 @@ chezmoi
 fd
 fzf
 gh
+jq
+kubie
+lsd
 neovim
 powerlevel10k
 ripgrep
 tmux
+yq

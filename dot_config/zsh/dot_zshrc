@@ -20,8 +20,6 @@ zinit light-mode for \
 
 ### End of Zinit's installer chunk
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
-
 ##########################
 # Prompt                #
 ##########################
@@ -48,9 +46,14 @@ zinit light zsh-users/zsh-syntax-highlighting
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
+export HISTFILESIZE=1000000000
+export HISTSIZE=1000000000
 
 bindkey '^P' up-history
 bindkey '^N' down-history
+
+setopt HIST_FIND_NO_DUPS
+setopt INC_APPEND_HISTORY
 
 ##########################
 # Sources                #
@@ -81,5 +84,7 @@ bindkey -e
 
 autoload -Uz compinit
 compinit
+
+source $HOME/.config/zsh/completions.zsh
 
 eval "$(zoxide init zsh)"
