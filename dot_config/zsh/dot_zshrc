@@ -20,6 +20,8 @@ zinit light-mode for \
 
 ### End of Zinit's installer chunk
 
+eval $(/opt/homebrew/bin/brew shellenv)
+
 ##########################
 # Prompt                #
 ##########################

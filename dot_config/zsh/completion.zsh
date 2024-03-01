@@ -7,3 +7,9 @@ if type docker > /dev/null; then
     source $XDG_CONFIG_HOME/zsh/completions/_docker
   fi
 fi
+
+if type gh > /dev/null; then
+  if [[ -f $XDG_CONFIG_HOME/zsh/completions/_gh ]]; then
+    source $XDG_CONFIG_HOME/zsh/completions/_gh
+  fi
+fi
