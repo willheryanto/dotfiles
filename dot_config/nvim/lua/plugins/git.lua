@@ -9,7 +9,11 @@ return {
     keys = {
       { "<leader>go", ":Octo ", { desc = "Octo" } },
     },
-    opts = {},
+    opts = {
+      suppress_missing_scope = {
+        projects_v2 = true,
+      },
+    },
   },
   {
     "ruifm/gitlinker.nvim",
