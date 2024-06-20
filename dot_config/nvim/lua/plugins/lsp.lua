@@ -20,6 +20,16 @@ return {
           },
         },
       })
+
+      opts.servers.vtsls = vim.tbl_extend("force", opts.servers.vtsls or {}, {
+        settings = {
+          typescript = {
+            preferences = {
+              importModuleSpecifier = "relative",
+            },
+          },
+        },
+      })
     end,
   },
 }

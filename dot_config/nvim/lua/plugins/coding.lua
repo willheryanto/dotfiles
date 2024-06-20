@@ -47,11 +47,36 @@ return {
   {
     "neovim/nvim-lspconfig",
     ---@class PluginLspOpts
-    opts = function(_, opts)
-      opts.servers = opts.servers or {}
-      opts.servers.bashls = opts.servers.bashls or {}
-      opts.servers.bashls = {}
-    end,
+    opts = {
+      servers = {
+        bashls = {},
+        -- dbtls = {},
+      },
+      setup = {
+        dbtls = function(_, opts)
+          local lspconfig = require("lspconfig")
+          local configs = require("lspconfig.configs")
+
+          if not configs.dbtls then
+            configs.dbtls = {
+              default_config = {
+                root_dir = lspconfig.util.root_pattern("dbt_project.yml"),
+                cmd = { "dbt-language-server", "--stdio" },
+                filetypes = { "sql", "dbt" },
+                init_options = {
+                  pythonInfo = { path = "python" },
+                  lspMode = "dbtProject",
+                  enableSnowflakeSyntaxCheck = true,
+                  profilesDir = "./profiles.yml",
+                },
+              },
+            }
+          end
+
+          lspconfig.dbtls.setup({ server = opts })
+        end,
+      },
+    },
   },
   {
     "nvim-neo-tree/neo-tree.nvim",
@@ -65,5 +90,25 @@ return {
   {
     "echasnovski/mini.pairs",
     enabled = false,
+  },
+  {
+    "nvimtools/none-ls.nvim",
+    opts = function(_, opts)
+      local nls = require("null-ls")
+      opts.sources = vim.list_extend(opts.sources or {}, {
+        nls.builtins.formatting.sqlfluff.with({
+          filetypes = { "sql", "dbt" },
+        }),
+      })
+    end,
+  },
+  {
+    "mfussenegger/nvim-lint",
+    opts = function(_, opts)
+      opts.linters_by_ft = vim.list_extend(opts.linters_by_ft or {}, {
+        sql = { "sqlfluff" },
+        dbt = { "sqlfluff" },
+      })
+    end,
   },
 }
