@@ -2,10 +2,10 @@ return {
   {
     "lervag/vimtex",
     lazy = false,
-    keys = {
-      { "<leader>vc", "<cmd>VimtexCompile<cr>", desc = "Vimtex Compile" },
-      { "<leader>vv", "<cmd>VimtexView<cr>", desc = "Vimtex View" },
-    },
+    -- keys = {
+    --   { "<leader>vc", "<cmd>VimtexCompile<cr>", desc = "Vimtex Compile" },
+    --   { "<leader>vv", "<cmd>VimtexView<cr>", desc = "Vimtex View" },
+    -- },
     init = function()
       vim.g.tex_flavor = "latex"
 

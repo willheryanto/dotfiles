@@ -14,7 +14,7 @@ shift + alt - x : yabai -m space --mirror x-axis
 
 shift + alt - t : yabai -m window --toggle float --grid 4:4:1:1:2:2
 
-shift + alt - e : yabai -m space --balance
+shift + alt - space : yabai -m space --balance
 
 shift + alt - j : yabai -m window --swap south
 shift + alt - k : yabai -m window --swap north
