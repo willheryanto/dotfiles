@@ -64,9 +64,9 @@ setopt INC_APPEND_HISTORY
 sources=(
   'function'
   'alias'
-  'prompt'
   'bin'
   'work'
+  'nnn'
 )
 
 for s in "${sources[@]}"; do

@@ -6,10 +6,6 @@ if type nvim > /dev/null; then
   alias en="cd $XDG_CONFIG_HOME/nvim && $EDITOR init.lua"
 fi
 
-if type lsd > /dev/null; then
-  alias ls=lsd
-fi
-
 if type lazygit > /dev/null; then
   alias lg=lazygit
 fi
@@ -18,17 +14,19 @@ if type leetcode > /dev/null; then
   alias lc=leetcode
 fi
 
-# if type nnn > /dev/null; then
-#   alias n=nnn
-#
-#   function nnn() {
-#     command nnn -e "$@"
-#   }
-# fi
-
-
 if type kubectl > /dev/null; then
   alias k=kubectl
+fi
+
+if type nnn > /dev/null; then
+  n() {
+      nnn -de "$@"
+
+      if [ -f $NNN_TMPFILE ]; then
+          . $NNN_TMPFILE
+          rm $NNN_TMPFILE
+      fi
+  }
 fi
 
 alias ez="cd $XDG_CONFIG_HOME/zsh/ && $EDITOR .zshrc"
