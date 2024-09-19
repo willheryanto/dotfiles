@@ -29,4 +29,15 @@ if type nnn > /dev/null; then
   }
 fi
 
+if type yazi > /dev/null; then
+  y() {
+    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+    yazi "$@" --cwd-file="$tmp"
+    if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+      builtin cd -- "$cwd"
+    fi
+    rm -f -- "$tmp"
+  }
+fi
+
 alias ez="cd $XDG_CONFIG_HOME/zsh/ && $EDITOR .zshrc"
