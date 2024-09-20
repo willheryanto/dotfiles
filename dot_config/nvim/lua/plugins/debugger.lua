@@ -78,6 +78,7 @@ return {
             "${workspaceFolder}/**",
             "!**/node_modules/**",
           },
+          console = "integratedTerminal",
         },
         {
           type = "pwa-node",
@@ -85,6 +86,7 @@ return {
           name = "My attach to process",
           processId = require("dap.utils").pick_process,
           cwd = "${workspaceFolder}",
+          console = "integratedTerminal",
         },
         {
           type = "pwa-chrome",
@@ -99,6 +101,7 @@ return {
           end,
           webRoot = "${workspaceFolder}",
           userDataDir = "${workspaceFolder}/.vscode/vscode-chrome-debug-userdatadir",
+          console = "integratedTerminal",
         },
       })
     end

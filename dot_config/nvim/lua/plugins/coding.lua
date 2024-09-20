@@ -112,4 +112,5 @@ return {
       })
     end,
   },
+  { "echasnovski/mini.align", version = "*", opts = {} },
 }
