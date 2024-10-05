@@ -113,4 +113,32 @@ return {
     end,
   },
   { "echasnovski/mini.align", version = "*", opts = {} },
+  {
+    "nvchad/volt",
+    keys = {
+      {
+        "<leader>cph",
+        function()
+          require("minty.huefy").open()
+        end,
+        desc = "Color picker - huefy",
+      },
+    },
+    lazy = true,
+  },
+  {
+    "nvchad/minty",
+    keys = {
+      {
+        "<leader>cps",
+        function()
+          require("minty.shades").open()
+        end,
+        desc = "Color Picker - shades",
+      },
+    },
+
+    lazy = true,
+  },
+  { "brenoprata10/nvim-highlight-colors", opts = {} },
 }

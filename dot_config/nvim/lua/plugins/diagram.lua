@@ -6,4 +6,8 @@ return {
       "aklt/plantuml-syntax",
     },
   },
+  {
+    "terrastruct/d2-vim",
+    ft = { "d2" },
+  },
 }
