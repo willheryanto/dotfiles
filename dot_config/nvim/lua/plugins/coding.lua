@@ -116,12 +116,13 @@ return {
   {
     "nvchad/volt",
     keys = {
+      { "<leader>cp", "", desc = "+Color Picker" },
       {
         "<leader>cph",
         function()
           require("minty.huefy").open()
         end,
-        desc = "Color picker - huefy",
+        desc = "Huefy",
       },
     },
     lazy = true,
@@ -129,16 +130,32 @@ return {
   {
     "nvchad/minty",
     keys = {
+      { "<leader>cp", "", desc = "+Color Picker" },
       {
         "<leader>cps",
         function()
           require("minty.shades").open()
         end,
-        desc = "Color Picker - shades",
+        desc = "Shades",
       },
     },
 
     lazy = true,
   },
   { "brenoprata10/nvim-highlight-colors", opts = {} },
+  {
+    "Bekaboo/dropbar.nvim",
+    -- optional, but required for fuzzy finder support
+    dependencies = {
+      "nvim-telescope/telescope-fzf-native.nvim",
+    },
+  },
+  {
+    "nvim-lualine/lualine.nvim",
+    enabled = false,
+  },
+  -- {
+  --   "rachartier/tiny-inline-diagnostic.nvim",
+  --   opts = {},
+  -- },
 }
