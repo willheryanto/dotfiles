@@ -154,8 +154,8 @@ return {
     "nvim-lualine/lualine.nvim",
     enabled = false,
   },
-  -- {
-  --   "rachartier/tiny-inline-diagnostic.nvim",
-  --   opts = {},
-  -- },
+  {
+    "dmmulroy/ts-error-translator.nvim",
+    opts = {},
+  },
 }
