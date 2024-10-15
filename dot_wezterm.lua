@@ -15,25 +15,32 @@ end
 -- For example, changing the color scheme:
 -- config.color_scheme = "Tokyo Night Moon"
 -- config.color_scheme = "Catppuccin Mocha"
+
+-- config.window_background_opacity = 0.60
+
 config.colors = {
-	foreground = "#f9f6ee",
-	background = "#090a04",
+	background = "#1c1c1c",
+	foreground = "#c0c0c0",
 	cursor_bg = "#c1c1c1",
 	cursor_fg = "#090a04",
-	selection_fg = "#f9f6ee",
-	selection_bg = "#3c3836",
+	cursor_border = "#bdfe58",
+	selection_fg = "#c0c0c0",
+	selection_bg = "#303030",
+	scrollbar_thumb = "#404040",
+
+	-- Map of ANSI color codes to theme colors
 	ansi = {
-		"#1d2021",
+		"#1c1c1c",
 		"#ff3131",
 		"#98971a",
 		"#d79921",
 		"#458588",
 		"#b16286",
-		"#689d6a",
-		"#a89984",
+		"#1bfd9c",
+		"#c0c0c0",
 	},
 	brights = {
-		"#928374",
+		"#585858",
 		"#fb4934",
 		"#b8bb26",
 		"#fabd2f",
@@ -42,6 +49,29 @@ config.colors = {
 		"#8ec07c",
 		"#ebdbb2",
 	},
+
+	-- Additional elements you might want to color
+	visual_bell = "#404040",
+	tab_bar = {
+		background = "#1c1c1c",
+		active_tab = {
+			bg_color = "#303030", -- visual selection color
+			fg_color = "#c0c0c0",
+		},
+		inactive_tab = {
+			bg_color = "#1c1c1c",
+			fg_color = "#585858",
+		},
+		inactive_tab_hover = {
+			bg_color = "#303030",
+			fg_color = "#c0c0c0",
+		},
+	},
+}
+
+config.keys = {
+	-- { key = "Tab", mods = "CTRL", action = wezterm.action.DisableDefaultAssignment },
+	-- { key = "Tab", mods = "CTRL|SHIFT", action = wezterm.action.DisableDefaultAssignment }
 }
 
 config.font = wezterm.font("MonoLisa")
