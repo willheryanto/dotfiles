@@ -74,8 +74,15 @@ config.keys = {
 	-- { key = "Tab", mods = "CTRL|SHIFT", action = wezterm.action.DisableDefaultAssignment }
 }
 
-
 config.font = wezterm.font_with_fallback({ "MonoLisa" })
+
+-- generate 02 - 18
+local harfbuzz = {}
+for i = 2, 18 do
+  table.insert(harfbuzz, "ss" .. string.format("%02d", i))
+end
+config.harfbuzz_features = harfbuzz
+
 config.font_size = 14.0
 config.line_height = 1.0
 config.cell_width = 1.0
