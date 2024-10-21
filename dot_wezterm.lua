@@ -74,9 +74,10 @@ config.keys = {
 	-- { key = "Tab", mods = "CTRL|SHIFT", action = wezterm.action.DisableDefaultAssignment }
 }
 
-config.font = wezterm.font("MonoLisa")
-config.font_size = 13.0
-config.line_height = 1.2
+
+config.font = wezterm.font_with_fallback({ "MonoLisa" })
+config.font_size = 14.0
+config.line_height = 1.0
 config.cell_width = 1.0
 config.window_decorations = "RESIZE"
 config.hide_tab_bar_if_only_one_tab = true

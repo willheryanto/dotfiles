@@ -158,4 +158,8 @@ return {
     "dmmulroy/ts-error-translator.nvim",
     opts = {},
   },
+  {
+    "jake-stewart/force-cul.nvim",
+    opts = {}
+  }
 }
