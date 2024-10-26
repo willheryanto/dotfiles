@@ -1,6 +1,7 @@
 return {
   {
     "rest-nvim/rest.nvim",
+    ft = "http",
     keys = {
       { "<leader>R", "", desc = "+Rest" },
       { "<leader>RS", "<cmd>Rest run<cr>", desc = "Request" },

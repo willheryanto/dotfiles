@@ -75,33 +75,33 @@ config.keys = {
 	-- { key = "Tab", mods = "CTRL|SHIFT", action = wezterm.action.DisableDefaultAssignment }
 }
 
-config.font = wezterm.font({ 
-  family = "MonoLisa" ,
-  harfbuzz_features = {
-    "frac", -- fractions
-    "onum", -- old style numbers
-    "liga", -- coding ligatures
-    "calt", -- whitespace ligatures
-    "zero", -- slashed zero
-    "ss01", -- normal asterisk
-    "ss02", -- script variant
-    -- "ss03", -- alt g
-    -- "ss04", -- alt g
-    -- "ss05", -- alt sharp s
-    "ss06", -- alt at
-    "ss07", -- alt curly bracket
-    "ss08", -- alt parenthesis
-    -- "ss09", -- alt greater equal
-    "ss10", -- allt greater equal
-    "ss11", -- hexadecimal x
-    "ss12", -- thin backslash
-    "ss13", -- alt dollar
-    -- "ss14", -- alt &
-    "ss15", -- i without serif
-    "ss16", -- r without serif
-    "ss17", -- alt .= and ..=
-    "ss18" -- alt at
-  },
+config.font = wezterm.font({
+	family = "MonoLisa",
+	harfbuzz_features = {
+		-- "frac", -- fractions
+		-- "onum", -- old style numbers
+		"liga", -- coding ligatures
+		"calt", -- whitespace ligatures
+		"zero", -- slashed zero
+		"ss01", -- normal asterisk
+		"ss02", -- script variant
+		-- "ss03", -- alt g
+		-- "ss04", -- alt g
+		-- "ss05", -- alt sharp s
+		-- "ss06", -- alt at
+		"ss07", -- alt curly bracket
+		"ss08", -- alt parenthesis
+		-- "ss09", -- alt greater equal
+		"ss10", -- allt greater equal
+		"ss11", -- hexadecimal x
+		"ss12", -- thin backslash
+		"ss13", -- alt dollar
+		"ss14", -- alt &
+		"ss15", -- i without serif
+		"ss16", -- r without serif
+		"ss17", -- alt .= and ..=
+		"ss18", -- alt at @
+	},
 })
 
 config.font_size = 14.0
