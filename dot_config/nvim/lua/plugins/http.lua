@@ -1,15 +1,9 @@
-return {
-  {
-    "rest-nvim/rest.nvim",
-    ft = "http",
-    keys = {
-      { "<leader>R", "", desc = "+Rest" },
-      { "<leader>RS", "<cmd>Rest run<cr>", desc = "Request" },
-      { "<leader>RR", ":Rest run ", desc = "Request with argument" },
-      { "<leader>RL", "<cmd>Rest last<cr>", desc = "Send the last request" },
-      { "<leader>RO", "<cmd>Rest open<cr>", desc = "Open request under the cursor" },
-    },
+vim.filetype.add({
+  extension = {
+    ["http"] = "http",
   },
+})
+return {
   {
     "oysandvik94/curl.nvim",
     cmd = { "CurlOpen" },
@@ -17,5 +11,25 @@ return {
       "nvim-lua/plenary.nvim",
     },
     config = true,
+  },
+  {
+    "mistweaverco/kulala.nvim",
+    dir = "~/ghq/github.com/mistweaverco/kulala.nvim",
+    ft = "http",
+    keys = {
+      { "<leader>R", "", desc = "+Rest" },
+      { "<leader>Rs", "<cmd>lua require('kulala').run()<cr>", desc = "Send the request" },
+      { "<leader>Rt", "<cmd>lua require('kulala').toggle_view()<cr>", desc = "Toggle headers/body" },
+      { "<leader>Rp", "<cmd>lua require('kulala').jump_prev()<cr>", desc = "Jump to previous request" },
+      { "<leader>Rn", "<cmd>lua require('kulala').jump_next()<cr>", desc = "Jump to next request" },
+    },
+    opts = {},
+    dev = true
+  },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = {
+      ensure_installed = { "http", "graphql" },
+    },
   },
 }
