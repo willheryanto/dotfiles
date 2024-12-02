@@ -1,34 +1,4 @@
 return {
-  { "folke/noice.nvim", enabled = true, commit = "d9328ef903168b6f52385a751eb384ae7e906c6f" }, --  NOTE: temporary
-  {
-    "zbirenbaum/copilot.lua",
-    cmd = "Copilot",
-    event = "InsertEnter",
-    opts = {
-      filetypes = { ["*"] = true },
-    },
-  },
-  {
-    "hrsh7th/nvim-cmp",
-    opts = function(_, opts)
-      if pcall(require, "vim-dadbod-completion") then
-        table.insert(opts.sources, {
-          name = "vim-dadbod-completion",
-        })
-      end
-
-      if pcall(require, "quarto") then
-        table.insert(opts.sources, {
-          name = "otter",
-        })
-      end
-    end,
-  },
-  {
-    "danymat/neogen",
-    dependencies = "nvim-treesitter/nvim-treesitter",
-    config = true,
-  },
   {
     "mrjones2014/smart-splits.nvim",
     opts = function(_, opts)
@@ -112,7 +82,6 @@ return {
       })
     end,
   },
-  { "echasnovski/mini.align", version = "*", opts = {} },
   {
     "nvchad/volt",
     keys = {
@@ -178,7 +147,39 @@ return {
   {
     "lukas-reineke/indent-blankline.nvim",
     main = "ibl",
-    tag = "v3.8.2",
     opts = {},
+  },
+  {
+    "neovim/nvim-lspconfig",
+    ---@class PluginLspOpts
+    init = function()
+      vim.g.autoformat = false
+    end,
+    opts = function(_, opts)
+      opts.servers.pyright = vim.tbl_extend("force", opts.servers.pyright, {
+        settings = {
+          python = {
+            analysis = {
+              typeCheckingMode = "basic",
+              useLibraryCodeForTypes = true,
+              diagnosticSeverityOverrides = {
+                reportGeneralTypeIssues = "error",
+                reportUndefinedVariable = "none",
+              },
+            },
+          },
+        },
+      })
+
+      opts.servers.vtsls = vim.tbl_extend("force", opts.servers.vtsls or {}, {
+        settings = {
+          typescript = {
+            preferences = {
+              importModuleSpecifier = "relative",
+            },
+          },
+        },
+      })
+    end,
   },
 }

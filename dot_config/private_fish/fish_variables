@@ -23,10 +23,11 @@ SETUVAR fish_color_selection:white\x1e\x2d\x2dbold\x1e\x2d\x2dbackground\x3dbrbl
 SETUVAR fish_color_status:red
 SETUVAR fish_color_user:brgreen
 SETUVAR fish_color_valid_path:\x2d\x2dunderline
+SETUVAR fish_greeting:\x1d
 SETUVAR fish_key_bindings:fish_default_key_bindings
 SETUVAR fish_pager_color_completion:normal
 SETUVAR fish_pager_color_description:yellow\x1e\x2di
 SETUVAR fish_pager_color_prefix:normal\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
 SETUVAR fish_pager_color_selected_background:\x2dr
-SETUVAR fish_user_paths:/opt/homebrew/opt/libpq/bin\x1e/Users/xen\x2en\x2dwillian/\x2ecargo/bin\x1e/Users/xen\x2en\x2dwillian/\x2elocal/bin\x1e/opt/homebrew/bin
+SETUVAR fish_user_paths:/Users/xen\x2en\x2dwillian/\x2easdf/installs/golang/1\x2e22\x2e0/packages/bin\x1e/opt/homebrew/opt/libpq/bin\x1e/Users/xen\x2en\x2dwillian/\x2ecargo/bin\x1e/Users/xen\x2en\x2dwillian/\x2elocal/bin\x1e/opt/homebrew/bin
