@@ -1,4 +1,0 @@
-return {
-    "atiladefreitas/dooing",
-    opts = {}
-}
