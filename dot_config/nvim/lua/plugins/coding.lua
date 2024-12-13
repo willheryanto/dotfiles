@@ -182,4 +182,36 @@ return {
       })
     end,
   },
+  {
+    "ibhagwan/fzf-lua",
+    cmd = "FzfLua",
+    opts = function(_, opts)
+      local actions = require("fzf-lua.actions")
+      opts.files = {
+        cwd_prompt = false,
+        actions = {
+          ["alt-i"] = { actions.toggle_ignore },
+          ["alt-."] = { actions.toggle_hidden },
+        },
+      }
+      opts.grep = {
+        actions = {
+          ["alt-i"] = { actions.toggle_ignore },
+          ["alt-."] = { actions.toggle_hidden },
+        },
+      }
+
+      return opts
+    end,
+  },
+  {
+    "MeanderingProgrammer/render-markdown.nvim",
+    opts = {
+      html = {
+        comment = {
+          conceal = false,
+        },
+      },
+    },
+  }
 }

@@ -11,13 +11,12 @@ return {
       },
     },
     opts = {
+      default_file_explorer = true,
       win_options = {
         signcolumn = "yes:2",
       },
     },
-    -- Optional dependencies
     dependencies = { { "echasnovski/mini.icons", opts = {} } },
-    -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
   },
   {
     "refractalize/oil-git-status.nvim",
