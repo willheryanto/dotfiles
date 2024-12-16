@@ -14,7 +14,6 @@ return {
   },
   {
     "mistweaverco/kulala.nvim",
-    dir = "~/ghq/github.com/mistweaverco/kulala.nvim",
     ft = "http",
     keys = {
       { "<leader>R", "", desc = "+Rest" },
@@ -24,7 +23,6 @@ return {
       { "<leader>Rn", "<cmd>lua require('kulala').jump_next()<cr>", desc = "Jump to next request" },
     },
     opts = {},
-    dev = true
   },
   {
     "nvim-treesitter/nvim-treesitter",
