@@ -4,6 +4,10 @@ return {
     event = "VeryLazy",
     build = "make",
     opts = {
+      provider = "gemini",
+      gemini = {
+        model = "gemini-exp-1206"
+      }
       -- add any opts here
       -- provider = "openai",
     },
