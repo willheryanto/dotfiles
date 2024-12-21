@@ -4,12 +4,14 @@ return {
     event = "VeryLazy",
     build = "make",
     opts = {
-      provider = "gemini",
+      provider = "copilot",
       gemini = {
-        model = "gemini-exp-1206"
-      }
-      -- add any opts here
-      -- provider = "openai",
+        endpoint = "https://generativelanguage.googleapis.com/v1beta/models",
+        model = "gemini-exp-1206",
+        timeout = 30000, -- Timeout in milliseconds
+        temperature = 0,
+        max_tokens = 4096,
+      },
     },
     dependencies = {
       "nvim-tree/nvim-web-devicons",
@@ -30,5 +32,5 @@ return {
         ft = { "markdown", "Avante" },
       },
     },
-  }
+  },
 }
