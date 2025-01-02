@@ -17,7 +17,7 @@ end
 -- config.color_scheme = "Catppuccin Mocha"
 
 -- config.window_background_opacity = 0.60
-config.color_scheme = "Night Owl (Gogh)"
+config.color_scheme = "tokyonight_night"
 
 config.keys = {
 	-- { key = "Tab", mods = "CTRL", action = wezterm.action.DisableDefaultAssignment },
