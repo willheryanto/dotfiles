@@ -4,13 +4,13 @@ return {
     event = "VeryLazy",
     build = "make",
     opts = {
-      provider = "copilot",
+      provider = "gemini",
       gemini = {
         endpoint = "https://generativelanguage.googleapis.com/v1beta/models",
-        model = "gemini-exp-1206",
-        timeout = 30000, -- Timeout in milliseconds
+        -- model = "gemini-exp-1206",
+        model = "gemini-2.0-flash-thinking-1219",
         temperature = 0,
-        max_tokens = 4096,
+        max_tokens = 8192,
       },
     },
     dependencies = {

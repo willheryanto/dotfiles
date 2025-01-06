@@ -128,6 +128,10 @@ return {
     opts = {},
   },
   {
+    "dmmulroy/tsc.nvim",
+    opts = {},
+  },
+  {
     "jake-stewart/force-cul.nvim",
     opts = {},
   },
