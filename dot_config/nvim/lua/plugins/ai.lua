@@ -7,11 +7,14 @@ return {
       provider = "gemini",
       gemini = {
         endpoint = "https://generativelanguage.googleapis.com/v1beta/models",
-        -- model = "gemini-exp-1206",
-        model = "gemini-2.0-flash-thinking-1219",
+        model = "gemini-exp-1206",
+        -- model = "gemini-2.0-flash-thinking-1219",
         temperature = 0,
         max_tokens = 8192,
       },
+      file_selector = {
+        provider = "fzf"
+      }
     },
     dependencies = {
       "nvim-tree/nvim-web-devicons",

@@ -7,6 +7,7 @@ alt - s : yabai -m display --focus west
 alt - g : yabai -m display --focus east
 
 shift + alt - r : yabai -m space --rotate 270
+shift + alt - b : yabai -m space --layout bsp
 
 shift + alt - y : yabai -m space --mirror y-axis
 
@@ -44,4 +45,4 @@ shift + alt - 7: yabai -m window --space 7;
 shift + alt - 8: yabai -m window --space 8;
 shift + alt - 9: yabai -m window --space 9;
 
-cmd + shift - m: yabai -m window --deminimize $(yabai -m query --windows  --space | jq -re '.[] | select(.["is-minimized"] == true) | .id')
+cmd + shift - m: yabai -m window --deminimize $(yabai -m query --windows --space | jq -re '[.[] | select(.["is-minimized"] == true)] | max_by(.id) | .id')
