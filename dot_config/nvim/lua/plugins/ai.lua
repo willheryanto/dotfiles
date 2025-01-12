@@ -4,17 +4,25 @@ return {
     event = "VeryLazy",
     build = "make",
     opts = {
-      provider = "gemini",
+      provider = "openai",
       gemini = {
         endpoint = "https://generativelanguage.googleapis.com/v1beta/models",
         model = "gemini-exp-1206",
         -- model = "gemini-2.0-flash-thinking-1219",
         temperature = 0,
-        max_tokens = 8192,
+        -- max_tokens = 8192,
+      },
+      openai = {
+        endpoint = "https://api.deepseek.com/v1",
+        model = "deepseek-chat",
+        timeout = 30000, -- Timeout in milliseconds
+        temperature = 0,
+        max_tokens = 4096,
+        ["local"] = false,
       },
       file_selector = {
-        provider = "fzf"
-      }
+        provider = "fzf",
+      },
     },
     dependencies = {
       "nvim-tree/nvim-web-devicons",
@@ -34,6 +42,16 @@ return {
         },
         ft = { "markdown", "Avante" },
       },
+    },
+  },
+  {
+    "joshuavial/aider.nvim",
+    opts = {
+      -- your configuration comes here
+      -- if you don't want to use the default settings
+      auto_manage_context = true, -- automatically manage buffer context
+      default_bindings = true, -- use default <leader>A keybindings
+      debug = false, -- enable debug logging
     },
   },
 }

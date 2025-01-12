@@ -14,17 +14,17 @@ return {
       },
       {
         "<leader>gdo",
-        ":DiffviewOpen<CR>",
+        "<cmd>DiffviewOpen<CR>",
         desc = "Open diffview",
       },
       {
         "<leader>gdc",
-        ":DiffviewClose<CR> ",
+        "<cmd>DiffviewClose<CR> ",
         desc = "Close diffview",
       },
       {
         "<leader>gdh",
-        ":DiffviewFileHistory %<CR> ",
+        "<cmd>DiffviewFileHistory %<CR> ",
         desc = "Open diffview of current file history",
       },
     },
