@@ -231,4 +231,59 @@ return {
       -- configuration goes here
     },
   },
+  {
+    "aaronik/treewalker.nvim",
+    dependencies = {
+      "folke/which-key.nvim"
+    },
+    keys = {
+      {
+        "<leader>m",
+        group = "treewalker",
+        desc = "+treewalker"
+      },
+      {
+        "<leader>mk",
+        "<cmd>Treewalker Up<cr>",
+        desc = "Up"
+      },
+      {
+        "<leader>mj",
+        "<cmd>Treewalker Down<cr>",
+        desc = "Down"
+      },
+      {
+        "<leader>mh",
+        "<cmd>Treewalker Left<cr>",
+        desc = "Left"
+      },
+      {
+        "<leader>ml",
+        "<cmd>Treewalker Right<cr>",
+        desc = "Right"
+      },
+      {
+        "<leader>m<space>",
+        function()
+          require("which-key").show({ keys = "<leader>m", loop = true })
+        end,
+        desc = "Treewalker Hydra Mode (which-key)",
+      }
+    },
+
+    -- The following options are the defaults.
+    -- Treewalker aims for sane defaults, so these are each individually optional,
+    -- and setup() does not need to be called, so the whole opts block is optional as well.
+    opts = {
+      -- Whether to briefly highlight the node after jumping to it
+      highlight = true,
+
+      -- How long should above highlight last (in ms)
+      highlight_duration = 250,
+
+      -- The color of the above highlight. Must be a valid vim highlight group.
+      -- (see :h highlight-group for options)
+      highlight_group = "CursorLine",
+    },
+  },
 }
