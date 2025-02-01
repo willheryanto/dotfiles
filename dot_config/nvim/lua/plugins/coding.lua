@@ -234,33 +234,33 @@ return {
   {
     "aaronik/treewalker.nvim",
     dependencies = {
-      "folke/which-key.nvim"
+      "folke/which-key.nvim",
     },
     keys = {
       {
         "<leader>m",
         group = "treewalker",
-        desc = "+treewalker"
+        desc = "+treewalker",
       },
       {
         "<leader>mk",
         "<cmd>Treewalker Up<cr>",
-        desc = "Up"
+        desc = "Up",
       },
       {
         "<leader>mj",
         "<cmd>Treewalker Down<cr>",
-        desc = "Down"
+        desc = "Down",
       },
       {
         "<leader>mh",
         "<cmd>Treewalker Left<cr>",
-        desc = "Left"
+        desc = "Left",
       },
       {
         "<leader>ml",
         "<cmd>Treewalker Right<cr>",
-        desc = "Right"
+        desc = "Right",
       },
       {
         "<leader>m<space>",
@@ -268,7 +268,7 @@ return {
           require("which-key").show({ keys = "<leader>m", loop = true })
         end,
         desc = "Treewalker Hydra Mode (which-key)",
-      }
+      },
     },
 
     -- The following options are the defaults.
@@ -284,6 +284,16 @@ return {
       -- The color of the above highlight. Must be a valid vim highlight group.
       -- (see :h highlight-group for options)
       highlight_group = "CursorLine",
+    },
+  },
+  {
+    "saghen/blink.cmp",
+    opts = {
+      completion = {
+        ghost_text = {
+          enabled = false,
+        },
+      },
     },
   },
 }

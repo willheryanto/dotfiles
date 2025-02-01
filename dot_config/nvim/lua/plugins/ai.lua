@@ -19,9 +19,10 @@ return {
         temperature = 0,
         max_tokens = 4096,
         ["local"] = false,
+        api_key_name = "DEEPSEEK_API_KEY",
       },
       file_selector = {
-        provider = "fzf",
+        provider = "snacks",
       },
     },
     dependencies = {
@@ -54,4 +55,27 @@ return {
       debug = false, -- enable debug logging
     },
   },
+  -- {
+  --   "ggml-org/llama.vim"
+  -- }
+  -- {
+  --   "olimorris/codecompanion.nvim",
+  --   opts = {
+  --     adapters = {
+  --       deepseek = {
+  --         schema = {
+  --           model = "deepseek-chat",
+  --         },
+  --       },
+  --     },
+  --     strategies = {
+  --       chat = {
+  --         adapter = "deepseek",
+  --       },
+  --       inline = {
+  --         adapter = "deepseek",
+  --       },
+  --     },
+  --   },
+  -- },
 }
