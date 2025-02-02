@@ -4,25 +4,46 @@ return {
     event = "VeryLazy",
     build = "make",
     opts = {
-      provider = "openai",
+      provider = "deepseek",
       gemini = {
-        endpoint = "https://generativelanguage.googleapis.com/v1beta/models",
         model = "gemini-exp-1206",
         -- model = "gemini-2.0-flash-thinking-1219",
         temperature = 0,
         -- max_tokens = 8192,
       },
       openai = {
-        endpoint = "https://api.deepseek.com/v1",
-        model = "deepseek-chat",
+        model = "o1-mini",
         timeout = 30000, -- Timeout in milliseconds
         temperature = 0,
         max_tokens = 4096,
-        ["local"] = false,
-        api_key_name = "DEEPSEEK_API_KEY",
+      },
+      vendors = {
+        ["deepseek"] = {
+          __inherited_from = "openai",
+          endpoint = "https://api.deepseek.com/v1",
+          model = "deepseek-chat",
+          timeout = 30000, -- Timeout in milliseconds
+          temperature = 0,
+          max_tokens = 4096,
+          api_key_name = "DEEPSEEK_API_KEY",
+        },
+        ["llama"] =  {
+          __inherited_from = "openai",
+          endpoint = "https://api.kluster.ai/v1",
+          model = "klusterai/Meta-Llama-3.1-8B-Instruct-Turbo",
+          timeout = 30000, -- Timeout in milliseconds
+          temperature = 0,
+          max_tokens = 4096,
+          api_key_name = "KLUSTERAI_API_KEY",
+        }
       },
       file_selector = {
         provider = "snacks",
+      },
+      windows = {
+        edit = {
+          start_insert = false,
+        },
       },
     },
     dependencies = {
