@@ -1,14 +1,5 @@
 return {
   {
-    "mrjones2014/smart-splits.nvim",
-    opts = function(_, opts)
-      vim.keymap.set("n", "<A-Left>", require("smart-splits").resize_left)
-      vim.keymap.set("n", "<A-Down>", require("smart-splits").resize_down)
-      vim.keymap.set("n", "<A-Up>", require("smart-splits").resize_up)
-      vim.keymap.set("n", "<A-Right>", require("smart-splits").resize_right)
-    end,
-  },
-  {
     "williamboman/mason.nvim",
     opts = function(_, opts)
       opts.ensure_installed = opts.ensure_installed or {}
@@ -48,15 +39,6 @@ return {
         end,
       },
     },
-  },
-  {
-    "nvim-neo-tree/neo-tree.nvim",
-    opts = function(_, opts)
-      opts.filesystem = opts.filesystem or {}
-      opts.filesystem.filtered_items = opts.filesystem.filtered_items or {}
-      opts.filesystem.filtered_items.always_show = opts.filesystem.filtered_items.always_show or {}
-      vim.list_extend(opts.filesystem.filtered_items.always_show, { ".buddy", ".deployment" })
-    end,
   },
   {
     "echasnovski/mini.pairs",
@@ -123,10 +105,10 @@ return {
     "nvim-lualine/lualine.nvim",
     enabled = false,
   },
-  {
-    "dmmulroy/ts-error-translator.nvim",
-    opts = {},
-  },
+  -- {
+  --   "dmmulroy/ts-error-translator.nvim",
+  --   opts = {},
+  -- },
   {
     "dmmulroy/tsc.nvim",
     opts = {},

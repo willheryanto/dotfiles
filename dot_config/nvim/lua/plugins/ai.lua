@@ -4,7 +4,7 @@ return {
     event = "VeryLazy",
     build = "make",
     opts = {
-      provider = "deepseek",
+      provider = "openai",
       gemini = {
         model = "gemini-exp-1206",
         -- model = "gemini-2.0-flash-thinking-1219",
@@ -64,16 +64,6 @@ return {
         },
         ft = { "markdown", "Avante" },
       },
-    },
-  },
-  {
-    "joshuavial/aider.nvim",
-    opts = {
-      -- your configuration comes here
-      -- if you don't want to use the default settings
-      auto_manage_context = true, -- automatically manage buffer context
-      default_bindings = true, -- use default <leader>A keybindings
-      debug = false, -- enable debug logging
     },
   },
   -- {
