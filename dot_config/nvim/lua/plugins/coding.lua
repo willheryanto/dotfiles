@@ -211,6 +211,10 @@ return {
     },
     opts = {
       -- configuration goes here
+      lang = "python3",
+      keys = {
+        reset_testcases = "R",
+      },
     },
   },
   {
