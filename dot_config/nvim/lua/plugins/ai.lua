@@ -14,6 +14,7 @@ return {
       openai = {
         model = "o1-mini",
         timeout = 30000, -- Timeout in milliseconds
+        disable_tools = true,
         temperature = 0,
         max_tokens = 4096,
       },
