@@ -28,7 +28,7 @@ return {
           max_tokens = 4096,
           api_key_name = "DEEPSEEK_API_KEY",
         },
-        ["llama"] =  {
+        ["llama"] = {
           __inherited_from = "openai",
           endpoint = "https://api.kluster.ai/v1",
           model = "klusterai/Meta-Llama-3.1-8B-Instruct-Turbo",
@@ -36,13 +36,16 @@ return {
           temperature = 0,
           max_tokens = 4096,
           api_key_name = "KLUSTERAI_API_KEY",
-        }
+        },
       },
       file_selector = {
         provider = "snacks",
       },
       windows = {
         edit = {
+          start_insert = true,
+        },
+        ask = {
           start_insert = false,
         },
       },
