@@ -282,4 +282,23 @@ return {
       },
     },
   },
+  {
+    "folke/snacks.nvim",
+    ---@type snacks.Config
+    opts = {
+      picker = {
+        win = {
+          input = {
+            keys = {
+              ["<c-f>"] = { "toggle_follow", mode = { "i", "n" } },
+              ["<c-h>"] = { "toggle_hidden", mode = { "i", "n" } },
+              ["<c-i>"] = { "toggle_ignored", mode = { "i", "n" } },
+              ["<c-m>"] = { "toggle_maximize", mode = { "i", "n" } },
+              ["<c-p>"] = { "toggle_preview", mode = { "i", "n" } },
+            },
+          },
+        },
+      },
+    },
+  },
 }

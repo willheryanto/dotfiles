@@ -12,7 +12,7 @@ return {
         -- max_tokens = 8192,
       },
       openai = {
-        model = "o1-mini",
+        model = "o3-mini",
         timeout = 30000, -- Timeout in milliseconds
         disable_tools = true,
         temperature = 0,
