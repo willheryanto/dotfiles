@@ -306,12 +306,46 @@ return {
     opts = {
       mappings = {
         {
-          pattern = "(.*).([tj]sx?)$",
+          -- Mapping from implementation file (e.g. index.ts) to unit test (index.test.ts)
+          pattern = function(current)
+            -- Do not match if the file already includes ".test."
+            if current:find("%.test%.") then
+              return nil
+            end
+            local cap1, cap2 = current:match("^(.-)%.([tj]sx?)$")
+            if cap1 and cap2 then
+              return { cap1, cap2 }
+            end
+            return nil
+          end,
           target = "%1.test.%2",
           context = "test",
         },
         {
-          pattern = "(.*).test.([tj]sx?)$",
+          -- Mapping from implementation file (e.g. index.ts) to integration test (index.integ.test.ts)
+          pattern = function(current)
+            -- Do not match if the file already includes ".test."
+            if current:find("%.test%.") then
+              return nil
+            end
+            local cap1, cap2 = current:match("^(.-)%.([tj]sx?)$")
+            if cap1 and cap2 then
+              return { cap1, cap2 }
+            end
+            return nil
+          end,
+          target = "%1.integ.test.%2",
+          context = "test",
+        },
+        {
+          -- Mapping from test file (unit or integration) back to the implementation file (e.g. index.test.ts or index.integ.test.ts -> index.ts)
+          pattern = function(current)
+            local cap1, cap2 = current:match("^(.-)%.(?:%.integ)?test%.([tj]sx?)$")
+            if cap1 and cap2 then
+              return { cap1, cap2 }
+            end
+            return nil
+          end,
           target = "%1.%2",
           context = "implementation",
         },
