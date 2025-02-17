@@ -22,9 +22,10 @@ config.color_scheme = "tokyonight_night"
 config.keys = {
 	-- { key = "Tab", mods = "CTRL", action = wezterm.action.DisableDefaultAssignment },
 	-- { key = "Tab", mods = "CTRL|SHIFT", action = wezterm.action.DisableDefaultAssignment }
+	{ key = "Enter", mods = "ALT", action = wezterm.action.DisableDefaultAssignment },
 }
 
-config.max_fps = 120
+config.max_fps = 240
 
 config.font = wezterm.font({
 	family = "MonoLisa",
