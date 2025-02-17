@@ -19,3 +19,4 @@ vim.api.nvim_del_keymap("i", "<M-k>")
 vim.api.nvim_del_keymap("i", "<M-j>")
 
 vim.api.nvim_set_keymap('n', '<leader>ci', ':let @+ = fnamemodify(expand("%:p"), ":~:.")<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>cI', ':let @+ = expand("%:p")<CR>', { noremap = true, silent = true })
