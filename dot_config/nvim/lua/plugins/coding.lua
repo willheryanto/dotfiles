@@ -340,9 +340,10 @@ return {
         {
           -- Mapping from test file (unit or integration) back to the implementation file (e.g. index.test.ts or index.integ.test.ts -> index.ts)
           pattern = function(current)
-            local cap1, cap2 = current:match("^(.-)%.(?:%.integ)?test%.([tj]sx?)$")
-            if cap1 and cap2 then
-              return { cap1, cap2 }
+            -- Match both "basename.test.ext" and "basename.integ.test.ext"
+            local base, integ, ext = current:match("^(.-)(%.integ)?%.test%.([tj]sx?)$")
+            if base and ext then
+              return { base, ext }
             end
             return nil
           end,
