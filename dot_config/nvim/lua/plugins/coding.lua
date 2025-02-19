@@ -354,4 +354,26 @@ return {
     },
     main = "other-nvim",
   },
+  {
+    "vim-test/vim-test",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    cmd = {
+      "TestNearest",
+      "TestFile",
+      "TestSuite",
+      "TestLast",
+      "TestVisit",
+    },
+    -- keys = {
+    --   { "<leader>tt", "<cmd>TestNearest<CR>", desc = "Run nearest test" },
+    --   { "<leader>tf", "<cmd>TestFile<CR>", desc = "Run tests in file" },
+    --   { "<leader>ts", "<cmd>TestSuite<CR>", desc = "Run entire test suite" },
+    --   { "<leader>tl", "<cmd>TestLast<CR>", desc = "Run last test" },
+    --   { "<leader>tv", "<cmd>TestVisit<CR>", desc = "Re-run last test" },
+    -- },
+    config = function()
+      -- Use Neovim terminal for running tests
+      vim.g["test#strategy"] = "neovim"
+    end,
+  },
 }
