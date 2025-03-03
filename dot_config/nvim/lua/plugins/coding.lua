@@ -274,13 +274,28 @@ return {
   },
   {
     "saghen/blink.cmp",
-    opts = {
-      completion = {
+    dependencies = {
+      "Kaiser-Yang/blink-cmp-avante",
+    },
+    opts = function(_, opts)
+      opts = opts or {}
+      opts.completion = vim.tbl_deep_extend("force", opts.completion or {}, {
         ghost_text = {
           enabled = false,
         },
-      },
-    },
+      })
+      opts.sources = opts.sources or {}
+      opts.sources.default = opts.sources.default or {}
+      vim.list_extend(opts.sources.default, { "avante" })
+      opts.sources.providers = vim.tbl_deep_extend("force", opts.sources.providers or {}, {
+        avante = {
+          module = "blink-cmp-avante",
+          name = "Avante",
+          opts = {},
+        },
+      })
+      return opts
+    end,
   },
   {
     "folke/snacks.nvim",
@@ -359,5 +374,9 @@ return {
       -- Use Neovim terminal for running tests
       vim.g["test#strategy"] = "neovim"
     end,
+  },
+  {
+    "PedramNavid/dbtpal",
+    opts = {},
   },
 }
