@@ -24,3 +24,10 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.wrap = false
   end,
 })
+
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = "*.rsx",
+  callback = function()
+    vim.bo.filetype = "tsx"
+  end,
+})

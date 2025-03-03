@@ -103,7 +103,7 @@ return {
   },
   {
     "nvim-lualine/lualine.nvim",
-    enabled = false,
+    enabled = true,
   },
   -- {
   --   "dmmulroy/ts-error-translator.nvim",
@@ -319,22 +319,6 @@ return {
             return nil
           end,
           target = "%1.test.%2",
-          context = "test",
-        },
-        {
-          -- Mapping from implementation file (e.g. index.ts) to integration test (index.integ.test.ts)
-          pattern = function(current)
-            -- Do not match if the file already includes ".test."
-            if current:find("%.test%.") then
-              return nil
-            end
-            local cap1, cap2 = current:match("^(.-)%.([tj]sx?)$")
-            if cap1 and cap2 then
-              return { cap1, cap2 }
-            end
-            return nil
-          end,
-          target = "%1.integ.test.%2",
           context = "test",
         },
         {
