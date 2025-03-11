@@ -70,6 +70,38 @@ return {
       },
     },
   },
+  {
+    "GeorgesAlkhouri/nvim-aider",
+    cmd = {
+      "AiderTerminalToggle",
+      "AiderHealth",
+    },
+    keys = {
+      { "<leader>a/", "<cmd>AiderTerminalToggle<cr>", desc = "Open Aider" },
+      { "<leader>as", "<cmd>AiderTerminalSend<cr>", desc = "Send to Aider", mode = { "n", "v" } },
+      { "<leader>ac", "<cmd>AiderQuickSendCommand<cr>", desc = "Send Command To Aider" },
+      { "<leader>ab", "<cmd>AiderQuickSendBuffer<cr>", desc = "Send Buffer To Aider" },
+      { "<leader>a+", "<cmd>AiderQuickAddFile<cr>", desc = "Add File to Aider" },
+      { "<leader>a-", "<cmd>AiderQuickDropFile<cr>", desc = "Drop File from Aider" },
+      { "<leader>ar", "<cmd>AiderQuickReadOnlyFile<cr>", desc = "Add File as Read-Only" },
+      -- Example nvim-tree.lua integration if needed
+      { "<leader>a+", "<cmd>AiderTreeAddFile<cr>", desc = "Add File from Tree to Aider", ft = "NvimTree" },
+      { "<leader>a-", "<cmd>AiderTreeDropFile<cr>", desc = "Drop File from Tree from Aider", ft = "NvimTree" },
+    },
+    dependencies = {
+      "folke/snacks.nvim",
+    },
+    name = "nvim_aider",
+    opts = {
+      args = {
+        "--edit-format diff",
+        "--architect",
+        "--model o3-mini",
+        "--reasoning-effort high",
+        "--editor-model deepseek/deepseek-chat"
+      }
+    }
+  },
   -- {
   --   "ggml-org/llama.vim"
   -- }
