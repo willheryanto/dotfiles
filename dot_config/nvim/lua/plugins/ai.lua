@@ -5,18 +5,12 @@ return {
     build = "make",
     opts = {
       provider = "openai",
-      gemini = {
-        model = "gemini-exp-1206",
-        -- model = "gemini-2.0-flash-thinking-1219",
-        temperature = 0,
-        -- max_tokens = 8192,
-      },
       openai = {
         model = "o3-mini",
         timeout = 30000, -- Timeout in milliseconds
         disable_tools = true,
-        temperature = 0,
-        max_tokens = 4096,
+        max_tokens = 100000,
+        reasoning_effort = "high",
       },
       vendors = {
         ["deepseek"] = {
@@ -98,9 +92,9 @@ return {
         "--architect",
         "--model o3-mini",
         "--reasoning-effort high",
-        "--editor-model deepseek/deepseek-chat"
-      }
-    }
+        "--editor-model deepseek/deepseek-chat",
+      },
+    },
   },
   -- {
   --   "ggml-org/llama.vim"
