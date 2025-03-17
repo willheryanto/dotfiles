@@ -249,6 +249,26 @@ return {
         desc = "Right",
       },
       {
+        "<leader>mK",
+        "<cmd>Treewalker SwapUp<cr>",
+        desc = "Up",
+      },
+      {
+        "<leader>mJ",
+        "<cmd>Treewalker SwapDown<cr>",
+        desc = "Down",
+      },
+      {
+        "<leader>mH",
+        "<cmd>Treewalker SwapLeft<cr>",
+        desc = "Left",
+      },
+      {
+        "<leader>mL",
+        "<cmd>Treewalker SwapRight<cr>",
+        desc = "Right",
+      },
+      {
         "<leader>m<space>",
         function()
           require("which-key").show({ keys = "<leader>m", loop = true })
