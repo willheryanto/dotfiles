@@ -12,31 +12,14 @@ return {
     opts = {
       servers = {
         bashls = {},
-        -- dbtls = {},
-      },
-      setup = {
-        dbtls = function(_, opts)
-          local lspconfig = require("lspconfig")
-          local configs = require("lspconfig.configs")
-
-          if not configs.dbtls then
-            configs.dbtls = {
-              default_config = {
-                root_dir = lspconfig.util.root_pattern("dbt_project.yml"),
-                cmd = { "dbt-language-server", "--stdio" },
-                filetypes = { "sql", "dbt" },
-                init_options = {
-                  pythonInfo = { path = "python" },
-                  lspMode = "dbtProject",
-                  enableSnowflakeSyntaxCheck = true,
-                  profilesDir = "./profiles.yml",
-                },
-              },
-            }
-          end
-
-          lspconfig.dbtls.setup({ server = opts })
-        end,
+        cucumber_language_server = {
+          settings = {
+            cucumber = {
+              features = { "cypress/e2e/**/*.feature" },
+              glue = { "cypress/e2e/**/*.js" },
+            },
+          },
+        },
       },
     },
   },

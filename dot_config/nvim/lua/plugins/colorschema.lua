@@ -14,7 +14,7 @@ return {
     lazy = false,
     priority = 1000,
     opts = {
-      -- theme = "dragon",
+      compile = true,
     },
     config = function(_, opts)
       require("kanagawa").setup(opts)
