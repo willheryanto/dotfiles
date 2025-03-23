@@ -9,7 +9,6 @@ return {
         model = "o3-mini",
         timeout = 30000, -- Timeout in milliseconds
         disable_tools = true,
-        max_tokens = 100000,
         reasoning_effort = "high",
       },
       vendors = {

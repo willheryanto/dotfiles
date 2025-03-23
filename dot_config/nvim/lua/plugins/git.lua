@@ -30,4 +30,9 @@ return {
     },
     opts = {},
   },
+  {
+    "tpope/vim-fugitive",
+    config = function ()
+    end
+  },
 }
