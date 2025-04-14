@@ -4,7 +4,7 @@ return {
     event = "VeryLazy",
     build = "make",
     opts = {
-      provider = "openai",
+      provider = "deepseek",
       openai = {
         model = "o3-mini",
         timeout = 30000, -- Timeout in milliseconds

@@ -434,4 +434,29 @@ return {
     "rcarriga/nvim-dap-ui",
     enabled = false,
   },
+  {
+    "zbirenbaum/copilot.lua",
+    optional = true,
+    opts = function()
+      require("copilot.api").status = require("copilot.status")
+    end,
+  },
+  {
+    "stevearc/overseer.nvim",
+    config = function(_, opts)
+      local overseer = require("overseer")
+
+      overseer.register_template({
+        name = "aider commit",
+        builder = function()
+          return {
+            cmd = { "aider", "--commit" },
+          }
+        end,
+        priority = 10,
+      })
+
+      overseer.setup(opts)
+    end,
+  },
 }
