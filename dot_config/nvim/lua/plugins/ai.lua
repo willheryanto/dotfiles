@@ -6,7 +6,7 @@ return {
     opts = {
       provider = "openai",
       openai = {
-        model = "o3-mini",
+        model = "o4-mini",
         timeout = 30000, -- Timeout in milliseconds
         disable_tools = true,
         reasoning_effort = "high",
