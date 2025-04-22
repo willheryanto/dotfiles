@@ -6,17 +6,22 @@ return {
     opts = {
       provider = "openai",
       openai = {
-        model = "o4-mini",
-        timeout = 30000, -- Timeout in milliseconds
-        disable_tools = true,
-        reasoning_effort = "high",
+        model = "gpt-4.1",
+      },
+      gemini = {
+        model = "gemini-2.5-pro-exp-03-25",
       },
       vendors = {
+        ["openai-r"] = {
+          __inherited_from = "openai",
+          model = "o4-mini",
+          disable_tools = true,
+          reasoning_effort = "high",
+        },
         ["deepseek"] = {
           __inherited_from = "openai",
           endpoint = "https://api.deepseek.com/v1",
           model = "deepseek-chat",
-          timeout = 30000, -- Timeout in milliseconds
           temperature = 0,
           max_tokens = 4096,
           api_key_name = "DEEPSEEK_API_KEY",
@@ -25,7 +30,6 @@ return {
           __inherited_from = "openai",
           endpoint = "https://api.kluster.ai/v1",
           model = "klusterai/Meta-Llama-3.1-8B-Instruct-Turbo",
-          timeout = 30000, -- Timeout in milliseconds
           temperature = 0,
           max_tokens = 4096,
           api_key_name = "KLUSTERAI_API_KEY",
