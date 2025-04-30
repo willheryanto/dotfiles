@@ -310,6 +310,11 @@ return {
           },
         },
       },
+      ---@class snacks.terminal.Config
+      terminal = {
+        start_insert = true,
+        auto_insert = false,
+      },
     },
   },
   {
