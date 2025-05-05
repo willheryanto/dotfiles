@@ -32,6 +32,7 @@
     "lazyvim.plugins.extras.linting.eslint",
     "lazyvim.plugins.extras.lsp.none-ls",
     "lazyvim.plugins.extras.ui.alpha",
+    "lazyvim.plugins.extras.ui.smear-cursor",
     "lazyvim.plugins.extras.ui.treesitter-context",
     "lazyvim.plugins.extras.util.dot",
     "lazyvim.plugins.extras.util.mini-hipatterns",
@@ -39,7 +40,7 @@
     "lazyvim.plugins.extras.util.rest",
     "lazyvim.plugins.extras.vscode"
   ],
-  "install_version": 8,
+  "install_version": 7,
   "news": {
     "NEWS.md": "10960"
   },
