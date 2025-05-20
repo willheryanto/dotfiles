@@ -43,20 +43,16 @@ return {
           start_insert = true,
         },
         ask = {
-          start_insert = false,
+          start_insert = true,
         },
       },
     },
     dependencies = {
+      "nvim-treesitter/nvim-treesitter",
       "nvim-tree/nvim-web-devicons",
       "stevearc/dressing.nvim",
       "nvim-lua/plenary.nvim",
-      {
-        "grapp-dev/nui-components.nvim",
-        dependencies = {
-          "MunifTanjim/nui.nvim",
-        },
-      },
+      "MunifTanjim/nui.nvim",
       --- The below is optional, make sure to setup it properly if you have lazy=true
       {
         "MeanderingProgrammer/render-markdown.nvim",
@@ -74,7 +70,13 @@ return {
       "AiderHealth",
     },
     keys = {
-      { "<leader>a/", "<cmd>Aider toggle<cr>", desc = "Toggle Aider" },
+      {
+        "<leader>a/",
+        function()
+          require("nvim_aider.api").toggle_terminal({ auto_insert = true, start_insert = true, auto_close = true })
+        end,
+        desc = "Toggle Aider",
+      },
       { "<leader>as", "<cmd>Aider send<cr>", desc = "Send to Aider", mode = { "n", "v" } },
       { "<leader>ac", "<cmd>Aider command<cr>", desc = "Aider Commands" },
       { "<leader>ab", "<cmd>Aider buffer<cr>", desc = "Send Buffer" },
@@ -93,27 +95,13 @@ return {
       args = {},
     },
   },
-  -- {
-  --   "ggml-org/llama.vim"
-  -- }
-  -- {
-  --   "olimorris/codecompanion.nvim",
-  --   opts = {
-  --     adapters = {
-  --       deepseek = {
-  --         schema = {
-  --           model = "deepseek-chat",
-  --         },
-  --       },
-  --     },
-  --     strategies = {
-  --       chat = {
-  --         adapter = "deepseek",
-  --       },
-  --       inline = {
-  --         adapter = "deepseek",
-  --       },
-  --     },
-  --   },
-  -- },
+  {
+    "greggh/claude-code.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim", -- Required for git operations
+    },
+    config = function()
+      require("claude-code").setup()
+    end,
+  },
 }

@@ -381,59 +381,7 @@ return {
     opts = {},
   },
   {
-    "mikavilpas/yazi.nvim",
-    event = "VeryLazy",
-    dependencies = { "folke/snacks.nvim" },
-    keys = {
-      {
-        -- Open in the current working directory
-        "<leader>fe",
-        "<cmd>Yazi<cr>",
-        desc = "Open yazi at the current file",
-      },
-      {
-        -- Open in the current working directory
-        "<leader>fE",
-        "<cmd>Yazi cwd<cr>",
-        desc = "Open the file manager in nvim's working directory",
-      },
-      { "<leader>e", "<leader>fe", desc = "Yazi (root dir)", remap = true },
-      { "<leader>E", "<leader>fE", desc = "Yazi (cwd)", remap = true },
-    },
-    opts = {},
-  },
-  {
     "mfussenegger/nvim-dap",
-    dependencies = {
-      {
-        "igorlfs/nvim-dap-view",
-        opts = {
-          windows = {
-            terminal = {
-              hide = { "pwa-node", "node" },
-            },
-          },
-        },
-        config = function(_, opts)
-          local dap, dv = require("dap"), require("dap-view")
-          dap.listeners.before.attach["dap-view-config"] = function()
-            dv.open()
-          end
-          dap.listeners.before.launch["dap-view-config"] = function()
-            dv.open()
-          end
-          dap.listeners.before.event_terminated["dap-view-config"] = function()
-            dv.close()
-          end
-          dap.listeners.before.event_exited["dap-view-config"] = function()
-            dv.close()
-          end
-
-          dv.setup(opts)
-        end,
-      },
-    },
-    opts = {},
   },
   {
     "rcarriga/nvim-dap-ui",
@@ -463,5 +411,8 @@ return {
 
       overseer.setup(opts)
     end,
+  },
+  {
+    "christoomey/vim-tmux-navigator",
   },
 }

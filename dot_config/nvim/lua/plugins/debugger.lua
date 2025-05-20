@@ -30,6 +30,42 @@ return {
       desc = "Step Out",
     },
   },
+  dependencies = {
+    {
+      "igorlfs/nvim-dap-view",
+      keys = {
+        {
+          "<leader>du",
+          "<cmd>DapViewToggle<cr>",
+          desc = "Dap view toggle",
+        },
+      },
+      opts = {
+        windows = {
+          terminal = {
+            hide = { "pwa-node", "node" },
+          },
+        },
+      },
+      config = function(_, opts)
+        local dap, dv = require("dap"), require("dap-view")
+        dap.listeners.before.attach["dap-view-config"] = function()
+          dv.open()
+        end
+        dap.listeners.before.launch["dap-view-config"] = function()
+          dv.open()
+        end
+        dap.listeners.before.event_terminated["dap-view-config"] = function()
+          dv.close()
+        end
+        dap.listeners.before.event_exited["dap-view-config"] = function()
+          dv.close()
+        end
+
+        dv.setup(opts)
+      end,
+    },
+  },
   opts = function()
     local languages = { "typescript", "javascript", "typescriptreact", "javascriptreact" }
 
