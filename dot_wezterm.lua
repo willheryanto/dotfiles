@@ -23,6 +23,10 @@ config.keys = {
 	-- { key = "Tab", mods = "CTRL", action = wezterm.action.DisableDefaultAssignment },
 	-- { key = "Tab", mods = "CTRL|SHIFT", action = wezterm.action.DisableDefaultAssignment }
 	{ key = "Enter", mods = "ALT", action = wezterm.action.DisableDefaultAssignment },
+
+	-- Or use H/L for tab movement (like vim buffer switching)
+	{ key = "H", mods = "CMD|SHIFT", action = wezterm.action.MoveTabRelative(-1) },
+	{ key = "L", mods = "CMD|SHIFT", action = wezterm.action.MoveTabRelative(1) },
 }
 
 config.max_fps = 240
@@ -56,7 +60,7 @@ config.font = wezterm.font({
 	},
 })
 
-config.font_size = 14.0
+config.font_size = 12.0
 config.line_height = 1.0
 config.cell_width = 1.0
 config.window_decorations = "RESIZE"

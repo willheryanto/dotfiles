@@ -18,8 +18,8 @@ vim.api.nvim_del_keymap("v", "<M-j>")
 vim.api.nvim_del_keymap("i", "<M-k>")
 vim.api.nvim_del_keymap("i", "<M-j>")
 
-vim.api.nvim_set_keymap('n', '<leader>cIi', ':let @+ = fnamemodify(expand("%:p"), ":~:.")<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>cii', ':let @+ = expand("%:p")<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>cii', ':let @+ = fnamemodify(expand("%:p"), ":~:.")<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>cIi', ':let @+ = expand("%:p")<CR>', { noremap = true, silent = true })
 
 vim.api.nvim_set_keymap('n', '<leader>cIa', ':let @+ = "/add " . fnamemodify(expand("%:p"), ":~:.")<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>cia', ':let @+ = "/add " . expand("%:p")<CR>', { noremap = true, silent = true })

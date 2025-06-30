@@ -45,4 +45,4 @@ shift + alt - 7: yabai -m window --space 7;
 shift + alt - 8: yabai -m window --space 8;
 shift + alt - 9: yabai -m window --space 9;
 
-cmd + shift - m: yabai -m window --deminimize $(yabai -m query --windows --space | jq -re '[.[] | select(.["is-minimized"] == true)] | max_by(.id) | .id')
+cmd + shift - m: current_app=$(yabai -m query --windows --window | jq -r '.app'); target=$(yabai -m query --windows --space | jq -re --arg app "$current_app" '[.[] | select(.["is-minimized"] == true and .app == $app)] | max_by(.id) | .id'); [ -n "$target" ] && yabai -m window --deminimize $target

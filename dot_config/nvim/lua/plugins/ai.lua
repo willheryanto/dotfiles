@@ -1,107 +1,108 @@
-return {
-  {
-    "yetone/avante.nvim",
-    event = "VeryLazy",
-    build = "make",
-    opts = {
-      provider = "openai",
-      openai = {
-        model = "gpt-4.1",
-      },
-      gemini = {
-        model = "gemini-2.5-pro-exp-03-25",
-      },
-      vendors = {
-        ["openai-r"] = {
-          __inherited_from = "openai",
-          model = "o4-mini",
-          disable_tools = true,
-          reasoning_effort = "high",
-        },
-        ["deepseek"] = {
-          __inherited_from = "openai",
-          endpoint = "https://api.deepseek.com/v1",
-          model = "deepseek-chat",
-          temperature = 0,
-          max_tokens = 4096,
-          api_key_name = "DEEPSEEK_API_KEY",
-        },
-        ["llama"] = {
-          __inherited_from = "openai",
-          endpoint = "https://api.kluster.ai/v1",
-          model = "klusterai/Meta-Llama-3.1-8B-Instruct-Turbo",
-          temperature = 0,
-          max_tokens = 4096,
-          api_key_name = "KLUSTERAI_API_KEY",
-        },
-      },
-      file_selector = {
-        provider = "snacks",
-      },
-      windows = {
-        edit = {
-          start_insert = true,
-        },
-        ask = {
-          start_insert = true,
-        },
-      },
-    },
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-      "nvim-tree/nvim-web-devicons",
-      "stevearc/dressing.nvim",
-      "nvim-lua/plenary.nvim",
-      "MunifTanjim/nui.nvim",
-      --- The below is optional, make sure to setup it properly if you have lazy=true
-      {
-        "MeanderingProgrammer/render-markdown.nvim",
-        opts = {
-          file_types = { "markdown", "Avante" },
-        },
-        ft = { "markdown", "Avante" },
-      },
-    },
-  },
-  {
-    "GeorgesAlkhouri/nvim-aider",
-    cmd = {
-      "AiderTerminalToggle",
-      "AiderHealth",
-    },
-    keys = {
-      {
-        "<leader>a/",
-        function()
-          require("nvim_aider.api").toggle_terminal({ auto_insert = true, start_insert = true, auto_close = true })
-        end,
-        desc = "Toggle Aider",
-      },
-      { "<leader>as", "<cmd>Aider send<cr>", desc = "Send to Aider", mode = { "n", "v" } },
-      { "<leader>ac", "<cmd>Aider command<cr>", desc = "Aider Commands" },
-      { "<leader>ab", "<cmd>Aider buffer<cr>", desc = "Send Buffer" },
-      { "<leader>a+", "<cmd>Aider add<cr>", desc = "Add File" },
-      { "<leader>a-", "<cmd>Aider drop<cr>", desc = "Drop File" },
-      { "<leader>ar", "<cmd>Aider add readonly<cr>", desc = "Add Read-Only" },
-      -- Example nvim-tree.lua integration if needed
-      { "<leader>a+", "<cmd>AiderTreeAddFile<cr>", desc = "Add File from Tree to Aider", ft = "NvimTree" },
-      { "<leader>a-", "<cmd>AiderTreeDropFile<cr>", desc = "Drop File from Tree from Aider", ft = "NvimTree" },
-    },
-    dependencies = {
-      "folke/snacks.nvim",
-    },
-    name = "nvim_aider",
-    opts = {
-      args = {},
-    },
-  },
-  {
-    "greggh/claude-code.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim", -- Required for git operations
-    },
-    config = function()
-      require("claude-code").setup()
-    end,
-  },
-}
+return {}
+-- return {
+--   {
+--     "yetone/avante.nvim",
+--     event = "VeryLazy",
+--     build = "make",
+--     opts = {
+--       provider = "openai",
+--       providers = {
+--         openai = {
+--           model = "gpt-4.1",
+--         },
+--         gemini = {
+--           model = "gemini-2.5-pro-exp-03-25",
+--         },
+--         ["openai-r"] = {
+--           __inherited_from = "openai",
+--           model = "o4-mini",
+--           disable_tools = true,
+--           reasoning_effort = "high",
+--         },
+--         ["deepseek"] = {
+--           __inherited_from = "openai",
+--           endpoint = "https://api.deepseek.com/v1",
+--           model = "deepseek-chat",
+--           temperature = 0,
+--           max_tokens = 4096,
+--           api_key_name = "DEEPSEEK_API_KEY",
+--         },
+--         ["llama"] = {
+--           __inherited_from = "openai",
+--           endpoint = "https://api.kluster.ai/v1",
+--           model = "klusterai/Meta-Llama-3.1-8B-Instruct-Turbo",
+--           temperature = 0,
+--           max_tokens = 4096,
+--           api_key_name = "KLUSTERAI_API_KEY",
+--         },
+--       },
+--       file_selector = {
+--         provider = "snacks",
+--       },
+--       windows = {
+--         edit = {
+--           start_insert = true,
+--         },
+--         ask = {
+--           start_insert = true,
+--         },
+--       },
+--     },
+--     dependencies = {
+--       "nvim-treesitter/nvim-treesitter",
+--       "nvim-tree/nvim-web-devicons",
+--       "stevearc/dressing.nvim",
+--       "nvim-lua/plenary.nvim",
+--       "MunifTanjim/nui.nvim",
+--       --- The below is optional, make sure to setup it properly if you have lazy=true
+--       {
+--         "MeanderingProgrammer/render-markdown.nvim",
+--         opts = {
+--           file_types = { "markdown", "Avante" },
+--         },
+--         ft = { "markdown", "Avante" },
+--       },
+--     },
+--   },
+--   {
+--     "GeorgesAlkhouri/nvim-aider",
+--     cmd = {
+--       "AiderTerminalToggle",
+--       "AiderHealth",
+--     },
+--     keys = {
+--       {
+--         "<leader>a/",
+--         function()
+--           require("nvim_aider.api").toggle_terminal({ auto_insert = true, start_insert = true, auto_close = true })
+--         end,
+--         desc = "Toggle Aider",
+--       },
+--       { "<leader>as", "<cmd>Aider send<cr>", desc = "Send to Aider", mode = { "n", "v" } },
+--       { "<leader>ac", "<cmd>Aider command<cr>", desc = "Aider Commands" },
+--       { "<leader>ab", "<cmd>Aider buffer<cr>", desc = "Send Buffer" },
+--       { "<leader>a+", "<cmd>Aider add<cr>", desc = "Add File" },
+--       { "<leader>a-", "<cmd>Aider drop<cr>", desc = "Drop File" },
+--       { "<leader>ar", "<cmd>Aider add readonly<cr>", desc = "Add Read-Only" },
+--       -- Example nvim-tree.lua integration if needed
+--       { "<leader>a+", "<cmd>AiderTreeAddFile<cr>", desc = "Add File from Tree to Aider", ft = "NvimTree" },
+--       { "<leader>a-", "<cmd>AiderTreeDropFile<cr>", desc = "Drop File from Tree from Aider", ft = "NvimTree" },
+--     },
+--     dependencies = {
+--       "folke/snacks.nvim",
+--     },
+--     name = "nvim_aider",
+--     opts = {
+--       args = {},
+--     },
+--   },
+--   {
+--     "greggh/claude-code.nvim",
+--     dependencies = {
+--       "nvim-lua/plenary.nvim", -- Required for git operations
+--     },
+--     config = function()
+--       require("claude-code").setup()
+--     end,
+--   },
+-- }
