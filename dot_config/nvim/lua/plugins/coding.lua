@@ -1,51 +1,15 @@
 return {
   {
-    "williamboman/mason.nvim",
-    opts = function(_, opts)
-      opts.ensure_installed = opts.ensure_installed or {}
-      vim.list_extend(opts.ensure_installed, { "shellcheck", "shfmt" })
-    end,
-  },
-  {
-    "neovim/nvim-lspconfig",
-    ---@class PluginLspOpts
-    opts = {
-      servers = {
-        bashls = {},
-        cucumber_language_server = {
-          settings = {
-            cucumber = {
-              features = { "cypress/e2e/**/*.feature" },
-              glue = { "cypress/e2e/**/*.js" },
-            },
-          },
-        },
-      },
-    },
-  },
-  {
     "echasnovski/mini.pairs",
     enabled = false,
   },
   {
-    "nvimtools/none-ls.nvim",
-    opts = function(_, opts)
-      local nls = require("null-ls")
-      opts.sources = vim.list_extend(opts.sources or {}, {
-        nls.builtins.formatting.sqlfluff.with({
-          filetypes = { "sql", "dbt" },
-        }),
-      })
-    end,
+    "rcarriga/nvim-dap-ui",
+    enabled = false,
   },
   {
-    "mfussenegger/nvim-lint",
-    opts = function(_, opts)
-      opts.linters_by_ft = vim.list_extend(opts.linters_by_ft or {}, {
-        sql = { "sqlfluff" },
-        dbt = { "sqlfluff" },
-      })
-    end,
+    "akinsho/bufferline.nvim",
+    enabled = false,
   },
   {
     "nvchad/volt",
@@ -88,68 +52,14 @@ return {
     "nvim-lualine/lualine.nvim",
     enabled = true,
   },
-  -- {
-  --   "dmmulroy/ts-error-translator.nvim",
-  --   opts = {},
-  -- },
-  {
-    "dmmulroy/tsc.nvim",
-    opts = {},
-  },
   {
     "jake-stewart/force-cul.nvim",
     opts = {},
   },
   {
-    "stevearc/conform.nvim",
-    optional = true,
-    opts = function(_, opts)
-      opts.formatters.d2 = {
-        args = { "fmt", "-" },
-      }
-      for _, ft in ipairs({ "d2" }) do
-        opts.formatters_by_ft[ft] = opts.formatters_by_ft[ft] or {}
-        table.insert(opts.formatters_by_ft[ft], "d2")
-      end
-    end,
-  },
-  {
     "lukas-reineke/indent-blankline.nvim",
     main = "ibl",
     opts = {},
-  },
-  {
-    "neovim/nvim-lspconfig",
-    ---@class PluginLspOpts
-    init = function()
-      vim.g.autoformat = false
-    end,
-    opts = function(_, opts)
-      opts.servers.pyright = vim.tbl_extend("force", opts.servers.pyright, {
-        settings = {
-          python = {
-            analysis = {
-              typeCheckingMode = "basic",
-              useLibraryCodeForTypes = true,
-              diagnosticSeverityOverrides = {
-                reportGeneralTypeIssues = "error",
-                reportUndefinedVariable = "none",
-              },
-            },
-          },
-        },
-      })
-
-      opts.servers.vtsls = vim.tbl_extend("force", opts.servers.vtsls or {}, {
-        settings = {
-          typescript = {
-            preferences = {
-              importModuleSpecifier = "relative",
-            },
-          },
-        },
-      })
-    end,
   },
   {
     "ibhagwan/fzf-lua",
@@ -172,33 +82,6 @@ return {
 
       return opts
     end,
-  },
-  {
-    "MeanderingProgrammer/render-markdown.nvim",
-    opts = {
-      html = {
-        comment = {
-          conceal = false,
-        },
-      },
-    },
-  },
-  {
-    "kawre/leetcode.nvim",
-    build = ":TSUpdate html", -- if you have `nvim-treesitter` installed
-    dependencies = {
-      -- "nvim-telescope/telescope.nvim",
-      "ibhagwan/fzf-lua",
-      "nvim-lua/plenary.nvim",
-      "MunifTanjim/nui.nvim",
-    },
-    opts = {
-      -- configuration goes here
-      lang = "python3",
-      keys = {
-        reset_testcases = "R",
-      },
-    },
   },
   {
     "aaronik/treewalker.nvim",
@@ -276,24 +159,6 @@ return {
     },
   },
   {
-    "saghen/blink.cmp",
-    dependencies = {
-      "Kaiser-Yang/blink-cmp-avante",
-    },
-    opts = {
-      sources = {
-        default = { "avante" },
-        providers = {
-          avante = {
-            module = "blink-cmp-avante",
-            name = "Avante",
-            opts = {},
-          },
-        },
-      },
-    },
-  },
-  {
     "folke/snacks.nvim",
     ---@type snacks.Config
     opts = {
@@ -353,64 +218,6 @@ return {
       },
     },
     main = "other-nvim",
-  },
-  {
-    "vim-test/vim-test",
-    dependencies = { "nvim-treesitter/nvim-treesitter" },
-    cmd = {
-      "TestNearest",
-      "TestFile",
-      "TestSuite",
-      "TestLast",
-      "TestVisit",
-    },
-    -- keys = {
-    --   { "<leader>tt", "<cmd>TestNearest<CR>", desc = "Run nearest test" },
-    --   { "<leader>tf", "<cmd>TestFile<CR>", desc = "Run tests in file" },
-    --   { "<leader>ts", "<cmd>TestSuite<CR>", desc = "Run entire test suite" },
-    --   { "<leader>tl", "<cmd>TestLast<CR>", desc = "Run last test" },
-    --   { "<leader>tv", "<cmd>TestVisit<CR>", desc = "Re-run last test" },
-    -- },
-    config = function()
-      -- Use Neovim terminal for running tests
-      vim.g["test#strategy"] = "neovim"
-    end,
-  },
-  {
-    "PedramNavid/dbtpal",
-    opts = {},
-  },
-  {
-    "mfussenegger/nvim-dap",
-  },
-  {
-    "rcarriga/nvim-dap-ui",
-    enabled = false,
-  },
-  {
-    "zbirenbaum/copilot.lua",
-    optional = true,
-    opts = function()
-      require("copilot.api").status = require("copilot.status")
-    end,
-  },
-  {
-    "stevearc/overseer.nvim",
-    config = function(_, opts)
-      local overseer = require("overseer")
-
-      overseer.register_template({
-        name = "aider commit",
-        builder = function()
-          return {
-            cmd = { "aider", "--commit" },
-          }
-        end,
-        priority = 10,
-      })
-
-      overseer.setup(opts)
-    end,
   },
   {
     "christoomey/vim-tmux-navigator",

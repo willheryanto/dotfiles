@@ -38,4 +38,14 @@ return {
       -- see below for full list of options 👇
     },
   },
+  {
+    "MeanderingProgrammer/render-markdown.nvim",
+    opts = {
+      html = {
+        comment = {
+          conceal = false,
+        },
+      },
+    },
+  },
 }

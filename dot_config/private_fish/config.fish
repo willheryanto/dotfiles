@@ -8,10 +8,13 @@ if status is-interactive
     alias k=kubectl
 
     export PSQL_PAGER="pspg -X -b"
+    export MCFLY_FUZZY=5
 
     zoxide init fish | source
 
     source $(brew --prefix asdf)/libexec/asdf.fish
     set -gx PATH ~/.asdf/shims $PATH # I don't know why, but this ensuring sub shell have the asdf as top priority
     mcfly init fish | source
+
+    export MANPAGER='nvim +Man!'
 end
