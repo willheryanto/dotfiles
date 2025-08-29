@@ -7,10 +7,10 @@ return {
     "rcarriga/nvim-dap-ui",
     enabled = false,
   },
-  {
-    "akinsho/bufferline.nvim",
-    enabled = false,
-  },
+  -- {
+  --   "akinsho/bufferline.nvim",
+  --   enabled = false,
+  -- },
   {
     "nvchad/volt",
     keys = {
