@@ -23,7 +23,7 @@ return {
         ["<C-l>"] = false, -- Unbind refresh from Ctrl+L
       },
     },
-    dependencies = { { "echasnovski/mini.icons", opts = {} } },
+    dependencies = { { "nvim-mini/mini.icons", opts = {} } },
   },
   {
     "refractalize/oil-git-status.nvim",
