@@ -19,6 +19,7 @@
     "lazyvim.plugins.extras.lang.clangd",
     "lazyvim.plugins.extras.lang.cmake",
     "lazyvim.plugins.extras.lang.docker",
+    "lazyvim.plugins.extras.lang.go",
     "lazyvim.plugins.extras.lang.helm",
     "lazyvim.plugins.extras.lang.json",
     "lazyvim.plugins.extras.lang.markdown",
@@ -36,8 +37,7 @@
     "lazyvim.plugins.extras.util.dot",
     "lazyvim.plugins.extras.util.mini-hipatterns",
     "lazyvim.plugins.extras.util.octo",
-    "lazyvim.plugins.extras.util.rest",
-    "lazyvim.plugins.extras.vscode"
+    "lazyvim.plugins.extras.util.rest"
   ],
   "install_version": 7,
   "news": {
