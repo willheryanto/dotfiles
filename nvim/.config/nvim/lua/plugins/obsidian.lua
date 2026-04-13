@@ -1,6 +1,11 @@
+local vault_root = vim.fs.normalize(vim.fn.expand("~/vaults/main"))
+
 return {
   "obsidian-nvim/obsidian.nvim",
   version = "*",
+  cond = function()
+    return vim.uv.fs_stat(vault_root) ~= nil
+  end,
   ft = "markdown",
   cmd = "Obsidian",
   keys = {
