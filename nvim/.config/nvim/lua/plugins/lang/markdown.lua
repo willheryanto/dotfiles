@@ -98,4 +98,23 @@ return {
       },
     },
   },
+
+  -- Live preview: Render Markdown/Mermaid in the browser with live updates
+  {
+    "brianhuster/live-preview.nvim",
+    ft = { "markdown", "html", "svg", "asciidoc" },
+    cmd = { "LivePreview" },
+    keys = {
+      { "<leader>mp", "<cmd>LivePreview start<cr>", desc = "Markdown Preview Start" },
+      { "<leader>mc", "<cmd>LivePreview close<cr>", desc = "Markdown Preview Close" },
+      { "<leader>mP", "<cmd>LivePreview pick<cr>", desc = "Markdown Preview Pick" },
+    },
+    config = function()
+      require("livepreview.config").set({
+        dynamic_root = true,
+        picker = "snacks.picker",
+        sync_scroll = true,
+      })
+    end,
+  },
 }

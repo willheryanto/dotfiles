@@ -257,5 +257,5 @@ alias nvim-new='NVIM_APPNAME=nvim-new nvim'
 - [x] Debug adapter (DAP) - TypeScript/JavaScript
 - [ ] Test runner integration
 - [ ] Snippets (custom)
-- [ ] Markdown preview
+- [x] Markdown preview
 - [ ] Terminal integration improvements
