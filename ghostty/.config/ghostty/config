@@ -1,0 +1,33 @@
+font-family = Maple Mono NF
+
+font-style-italic = Regular Italic
+font-style-bold = Bold
+font-style-bold-italic = Bold Italic
+
+font-size = 12
+
+font-feature = calt
+font-feature = zero
+font-feature = ss01
+font-feature = ss02
+font-feature = ss07
+font-feature = ss08
+font-feature = ss10
+font-feature = ss11
+
+theme = Kanagawa Dragon
+
+confirm-close-surface = false
+bold-is-bright = true
+
+macos-option-as-alt = true
+clipboard-paste-bracketed-safe = true
+
+# Local split navigation bindings.
+# Ctrl-a becomes a one-shot prefix for pane movement and zoom.
+keybind = ctrl+a=activate_key_table_once:tmux
+keybind = tmux/h=goto_split:left
+keybind = tmux/j=goto_split:down
+keybind = tmux/k=goto_split:up
+keybind = tmux/l=goto_split:right
+keybind = tmux/z=toggle_split_zoom

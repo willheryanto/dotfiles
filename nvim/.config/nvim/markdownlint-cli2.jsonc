@@ -1,0 +1,16 @@
+{
+  // Obsidian notes often use the file title as the visible title instead of
+  // duplicating it as an H1 inside the body.
+  "MD041": false,
+
+  // Notes frequently use bold lead-ins as visual callouts rather than formal
+  // headings.
+  "MD036": false,
+
+  // Obsidian notes often use label-value structures where a list follows
+  // immediately after a label like "Current issue:" or "Before meal:".
+  "MD032": false,
+
+  // Avoid forcing line-length wrapping in prose notes.
+  "MD013": false
+}
