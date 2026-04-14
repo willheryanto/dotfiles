@@ -1,0 +1,30 @@
+# Kanagawa Dragon for fish, based on the official kanagawa.nvim fish mapping
+# and adapted to the Dragon palette.
+fish_color_normal c5c9c5
+fish_color_command 8ea4a2
+fish_color_keyword a292a3
+fish_color_quote c4b28a
+fish_color_redirection c5c9c5
+fish_color_end b98d7b
+fish_color_error e46876
+fish_color_param a6a69c
+fish_color_comment 737c73
+fish_color_selection --background=2D4F67
+fish_color_search_match --background=2D4F67
+fish_color_operator c4746e
+fish_color_escape a292a3
+fish_color_autosuggestion 7a8382
+fish_color_cwd 87a987
+fish_color_cwd_root e46876
+fish_color_user 87a987
+fish_color_host c5c9c5
+fish_color_host_remote c4b28a
+fish_color_status e46876
+fish_color_cancel -r
+fish_color_valid_path --underline
+fish_color_history_current --bold
+fish_pager_color_progress 7a8382
+fish_pager_color_prefix 8ea4a2
+fish_pager_color_completion c5c9c5
+fish_pager_color_description 737c73
+fish_pager_color_selected_background --background=2D4F67
