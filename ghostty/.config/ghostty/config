@@ -30,4 +30,5 @@ keybind = tmux/h=goto_split:left
 keybind = tmux/j=goto_split:down
 keybind = tmux/k=goto_split:up
 keybind = tmux/l=goto_split:right
+keybind = tmux/escape=ignore
 keybind = tmux/z=toggle_split_zoom
