@@ -20,6 +20,11 @@ return {
     suppress_missing_scope = {
       projects_v2 = true,
     },
+    mappings = {
+      submit_win = {
+        approve_review = { lhs = "<C-p>", desc = "Approve review" },
+      },
+    },
   },
   config = function(_, opts)
     require("octo").setup(opts)
