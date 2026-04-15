@@ -1,0 +1,74 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+pattern='(^|.*/)caffeinate -diu$'
+
+usage() {
+  cat <<'EOF'
+Usage: caff [start|stop|restart|status]
+
+Manage `caffeinate -diu` as a background process.
+EOF
+}
+
+matching_pids() {
+  pgrep -f "$pattern" || true
+}
+
+show_status() {
+  local pids
+  pids="$(matching_pids)"
+
+  if [[ -n "$pids" ]]; then
+    echo "running"
+    printf '%s\n' "$pids"
+  else
+    echo "stopped"
+  fi
+}
+
+start_caffeinate() {
+  if [[ -n "$(matching_pids)" ]]; then
+    echo "caffeinate -diu is already running"
+    return 0
+  fi
+
+  nohup caffeinate -diu >/dev/null 2>&1 < /dev/null &
+  disown || true
+
+  echo "started caffeinate -diu"
+}
+
+stop_caffeinate() {
+  if [[ -z "$(matching_pids)" ]]; then
+    echo "caffeinate -diu is not running"
+    return 0
+  fi
+
+  pkill -f "$pattern"
+  echo "stopped caffeinate -diu"
+}
+
+case "${1:-status}" in
+  start)
+    start_caffeinate
+    ;;
+  stop)
+    stop_caffeinate
+    ;;
+  restart)
+    stop_caffeinate
+    start_caffeinate
+    ;;
+  status)
+    show_status
+    ;;
+  -h|--help|help)
+    usage
+    ;;
+  *)
+    usage >&2
+    exit 1
+    ;;
+esac
