@@ -31,4 +31,9 @@ keybind = tmux/j=goto_split:down
 keybind = tmux/k=goto_split:up
 keybind = tmux/l=goto_split:right
 keybind = tmux/escape=ignore
+keybind = tmux/a=ignore
 keybind = tmux/z=toggle_split_zoom
+
+# Fix Alt+Arrow for Codex TUI agent switching (Ghostty converts to word-motion by default)
+keybind = alt+left=text:\x1b[1;3D
+keybind = alt+right=text:\x1b[1;3C
