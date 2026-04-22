@@ -36,7 +36,7 @@ autocmd("TextYankPost", {
 autocmd("VimResized", {
   group = augroup("resize_splits", { clear = true }),
   callback = function()
-    vim.cmd("tabdo wincmd =")
+    vim.cmd("wincmd =")
   end,
 })
 
@@ -89,7 +89,7 @@ autocmd("FileType", {
   group = augroup("markdown_ui", { clear = true }),
   pattern = "markdown",
   callback = function()
-    vim.opt_local.conceallevel = 2
+    vim.opt_local.conceallevel = 0
   end,
 })
 

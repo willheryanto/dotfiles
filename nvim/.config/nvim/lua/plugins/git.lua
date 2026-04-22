@@ -62,6 +62,19 @@ return {
     "esmuellert/codediff.nvim",
     dependencies = { "MunifTanjim/nui.nvim" },
     cmd = "CodeDiff",
+    opts = {
+      explorer = {
+        view_mode = "tree",
+      },
+      keymaps = {
+        view = {
+          toggle_stage = "g-",
+        },
+        explorer = {
+          stage_all = false,
+        },
+      },
+    },
   },
 
   -- Snacks: For lazygit floating terminal
