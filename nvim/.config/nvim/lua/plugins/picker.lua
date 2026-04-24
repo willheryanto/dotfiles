@@ -78,7 +78,20 @@ return {
       cwd_prompt = false,
     },
     grep = {
+      hidden = false,
+      header_separator = "  ",
       rg_opts = "--column --line-number --no-heading --color=always --smart-case --max-columns=4096 -e",
+      actions = {
+        ["alt-."] = {
+          fn = function(selected, opts)
+            require("fzf-lua.actions").toggle_hidden(selected, opts)
+          end,
+          reuse = true,
+          header = function(opts)
+            return opts.hidden and "hide hidden files" or "show hidden files"
+          end,
+        },
+      },
     },
     fzf_opts = {
       ["--cycle"] = true,
