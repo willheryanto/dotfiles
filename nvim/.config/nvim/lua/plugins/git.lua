@@ -107,7 +107,12 @@ return {
       { "<leader>gS", "<cmd>FzfLua git_stash<cr>", desc = "Stash" },
       { "<leader>gm", function()
         local fzf = require("fzf-lua")
-        fzf.fzf_exec("git status --short --untracked-files=no | awk '{ key = (substr($0,2,1) != \" \") ? 0 : 1; print key \"\\t\" $0 }' | sort -k1,1 -s", {
+        local git_root = vim.fn.system("git rev-parse --show-toplevel"):gsub("%s+$", "")
+        if git_root == "" then
+          git_root = vim.uv.cwd()
+        end
+        fzf.fzf_exec("git status --porcelain=v1 --untracked-files=no | awk '{ key = (substr($0,2,1) != \" \") ? 0 : 1; print key \"\\t\" $0 }' | sort -k1,1 -s", {
+          cwd = git_root,
           prompt = "Git> ",
           preview = "sh -c 'status=\"$1\"; file=\"$2\"; s1=\"${status%?}\"; s2=\"${status#?}\"; if [ \"$s1\" != \" \" ] && [ \"$s2\" != \" \" ]; then git diff --color=always --cached -- \"$file\"; printf \"\\n\"; git diff --color=always -- \"$file\"; elif [ \"$s1\" != \" \" ]; then git diff --color=always --cached -- \"$file\"; else git diff --color=always -- \"$file\"; fi' -- {2} {4}",
           fn_transform = function(x)
@@ -161,19 +166,28 @@ return {
             ["default"] = function(selected)
               local fields = vim.split(selected[1], "\t")
               local file = fields[4]
-              if file then vim.cmd("edit " .. file) end
+              if file then vim.cmd("edit " .. vim.fn.fnameescape(git_root .. "/" .. file)) end
             end,
           },
           fzf_opts = { ["--ansi"] = "", ["--delimiter"] = "\t", ["--with-nth"] = "3,4" },
         })
       end, desc = "Git status files" },
       { "<leader>gu", function()
-        require("fzf-lua").fzf_exec("git ls-files --others --exclude-standard", {
+        local git_root = vim.fn.system("git rev-parse --show-toplevel"):gsub("%s+$", "")
+        if git_root == "" then
+          git_root = vim.uv.cwd()
+        end
+        require("fzf-lua").fzf_exec("git ls-files --others --exclude-standard | awk '{ key = index($0, \"/\") ? 0 : 1; print key \"\\t\" $0 }' | sort -k1,1n -k2,2 -s | cut -f2-", {
+          cwd = git_root,
           prompt = "Untracked> ",
           preview = "bat --style=numbers --color=always {}",
           actions = {
-            ["default"] = require("fzf-lua.actions").file_edit,
+            ["default"] = function(selected)
+              local file = selected[1]
+              if file then vim.cmd("edit " .. vim.fn.fnameescape(git_root .. "/" .. file)) end
+            end,
           },
+          fzf_opts = { ["--no-sort"] = "" },
         })
       end, desc = "Untracked files" },
     },
