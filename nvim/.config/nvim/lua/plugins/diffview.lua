@@ -3,10 +3,10 @@ return {
   "sindrets/diffview.nvim",
   cmd = { "DiffviewOpen", "DiffviewFileHistory", "DiffviewClose" },
   keys = {
-    { "<leader>gvo", "<cmd>DiffviewOpen<cr>", desc = "Diffview Open" },
-    { "<leader>gvc", "<cmd>DiffviewClose<cr>", desc = "Diffview Close" },
-    { "<leader>gvf", "<cmd>DiffviewFileHistory %<cr>", desc = "File History (current)" },
-    { "<leader>gvh", "<cmd>DiffviewFileHistory<cr>", desc = "File History (repo)" },
+    { "<leader>gdv", "<cmd>DiffviewOpen<cr>", desc = "Diffview Open" },
+    { "<leader>gdV", "<cmd>DiffviewClose<cr>", desc = "Diffview Close" },
+    { "<leader>gdf", "<cmd>DiffviewFileHistory %<cr>", desc = "File History (current)" },
+    { "<leader>gdh", "<cmd>DiffviewFileHistory<cr>", desc = "File History (repo)" },
   },
   opts = {
     enhanced_diff_hl = true,

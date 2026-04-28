@@ -62,6 +62,9 @@ return {
     "esmuellert/codediff.nvim",
     dependencies = { "MunifTanjim/nui.nvim" },
     cmd = "CodeDiff",
+    keys = {
+      { "<leader>gdc", "<cmd>CodeDiff<cr>", desc = "Diff (working tree)" },
+    },
     opts = {
       explorer = {
         view_mode = "tree",
@@ -107,7 +110,7 @@ return {
       { "<leader>gbf", "<cmd>FzfLua git_blame<cr>", desc = "Blame (file)" },
       { "<leader>gs", "<cmd>FzfLua git_status<cr>", desc = "Status" },
       { "<leader>gS", "<cmd>FzfLua git_stash<cr>", desc = "Stash" },
-      { "<leader>gm", function()
+      { "<leader>gdd", function()
         local fzf = require("fzf-lua")
         local git_root = vim.fn.system("git rev-parse --show-toplevel"):gsub("%s+$", "")
         if git_root == "" then
