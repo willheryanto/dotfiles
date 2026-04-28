@@ -13,6 +13,8 @@ return {
         { "<leader>f", group = "file/find" },
         { "<leader>g", group = "git" },
         { "<leader>r", group = "rest/http" },
+        { "<leader>gb", group = "blame" },
+        { "<leader>gc", group = "commits" },
         { "<leader>gh", group = "hunks" },
         { "<leader>gv", group = "diffview" },
         { "<leader>l", group = "leetcode" },

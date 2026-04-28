@@ -4,7 +4,7 @@ return {
     "tpope/vim-fugitive",
     cmd = { "Git", "G", "Gread", "Gwrite", "Gdiffsplit", "Gvdiffsplit" },
     keys = {
-      { "<leader>gB", "<cmd>Git blame<cr>", desc = "Git Blame (fugitive)" },
+      { "<leader>gbb", "<cmd>Git blame<cr>", desc = "Git Blame (fugitive)" },
     },
   },
 
@@ -102,7 +102,9 @@ return {
     "ibhagwan/fzf-lua",
     keys = {
       { "<leader>fg", "<cmd>FzfLua git_files<cr>", desc = "Find Files (git-files)" },
-      { "<leader>gc", "<cmd>FzfLua git_commits<cr>", desc = "Commits" },
+      { "<leader>gcf", "<cmd>FzfLua git_bcommits<cr>", desc = "Commits (file)" },
+      { "<leader>gcp", "<cmd>FzfLua git_commits<cr>", desc = "Commits (project)" },
+      { "<leader>gbf", "<cmd>FzfLua git_blame<cr>", desc = "Blame (file)" },
       { "<leader>gs", "<cmd>FzfLua git_status<cr>", desc = "Status" },
       { "<leader>gS", "<cmd>FzfLua git_stash<cr>", desc = "Stash" },
       { "<leader>gm", function()
