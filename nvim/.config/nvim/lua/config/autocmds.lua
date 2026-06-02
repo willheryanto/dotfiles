@@ -88,8 +88,17 @@ autocmd("FileType", {
 autocmd("FileType", {
   group = augroup("markdown_ui", { clear = true }),
   pattern = "markdown",
-  callback = function()
-    vim.opt_local.conceallevel = 0
+  callback = function(event)
+    local vault_root = vim.fs.normalize(vim.fn.expand("~/vaults/main"))
+    local file = vim.api.nvim_buf_get_name(event.buf)
+    local real = vim.uv.fs_realpath(file) or file
+    local path = vim.fs.normalize(real)
+
+    if vim.startswith(path, vault_root .. "/") then
+      vim.opt_local.conceallevel = 2
+    else
+      vim.opt_local.conceallevel = 0
+    end
   end,
 })
 
