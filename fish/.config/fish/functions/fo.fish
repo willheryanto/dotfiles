@@ -23,6 +23,7 @@ function fo
     end
 
     set -l file (command fd --type f --hidden --follow --exclude ".git" . | fzf $fzf_args)
+    printf '\e[0m\e[?25h'
     test -n "$file"; or return 0
 
     set -l editor $VISUAL
