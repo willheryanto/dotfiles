@@ -1,6 +1,8 @@
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 
+local ts_fts = { typescript = true, typescriptreact = true, javascript = true, javascriptreact = true }
+
 -- LSP keymaps on attach
 autocmd("LspAttach", {
   group = augroup("lsp_keymaps", { clear = true }),
@@ -11,7 +13,34 @@ autocmd("LspAttach", {
 
     -- Use fzf-lua for LSP navigation (better UI, auto-jumps if single result)
     local fzf = require("fzf-lua")
-    map("n", "gd", fzf.lsp_definitions, "Go to definition")
+
+    local function ts_definition_on_list(options)
+      for i, item in ipairs(options.items) do
+        local fname = item.filename
+        if fname and fname:match("%.d%.ts$") then
+          local source = fname:gsub("/dist/", "/"):gsub("%.d%.ts$", ".ts")
+          if vim.uv.fs_stat(source) then
+            options.items[i].filename = source
+            options.items[i].lnum = 1
+            options.items[i].col = 1
+          end
+        end
+      end
+      if #options.items == 1 then
+        vim.cmd.edit(options.items[1].filename)
+        vim.api.nvim_win_set_cursor(0, { options.items[1].lnum or 1, (options.items[1].col or 1) - 1 })
+      else
+        vim.fn.setqflist({}, " ", { title = options.title, items = options.items })
+        fzf.quickfix()
+      end
+    end
+
+    map("n", "gd", function()
+      if not ts_fts[vim.bo.filetype] then
+        return fzf.lsp_definitions()
+      end
+      vim.lsp.buf.definition({ on_list = ts_definition_on_list })
+    end, "Go to definition")
     map("n", "gD", fzf.lsp_declarations, "Go to declaration")
     map("n", "gR", fzf.lsp_references, "Show references") -- Changed to gR
     map("n", "gi", fzf.lsp_implementations, "Go to implementation")

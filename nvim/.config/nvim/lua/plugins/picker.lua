@@ -76,6 +76,18 @@ return {
     },
     files = {
       cwd_prompt = false,
+      actions = {
+        ["alt-."] = {
+          fn = function(selected, opts)
+            require("fzf-lua.actions").toggle_hidden(selected, opts)
+            require("fzf-lua.actions").toggle_ignore(selected, opts)
+          end,
+          reuse = true,
+          header = function(opts)
+            return opts.hidden and "hide hidden/ignored files" or "show hidden/ignored files"
+          end,
+        },
+      },
     },
     grep = {
       hidden = false,
@@ -85,10 +97,11 @@ return {
         ["alt-."] = {
           fn = function(selected, opts)
             require("fzf-lua.actions").toggle_hidden(selected, opts)
+            require("fzf-lua.actions").toggle_ignore(selected, opts)
           end,
           reuse = true,
           header = function(opts)
-            return opts.hidden and "hide hidden files" or "show hidden files"
+            return opts.hidden and "hide hidden/ignored files" or "show hidden/ignored files"
           end,
         },
       },

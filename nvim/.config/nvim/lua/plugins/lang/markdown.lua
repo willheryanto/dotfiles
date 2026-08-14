@@ -53,6 +53,10 @@ return {
     keys = {
       { "<leader>tm", "<cmd>TableModeToggle<cr>", desc = "Toggle Table Mode" },
     },
+    init = function()
+      vim.g.table_mode_syntax = 0
+      vim.g.table_mode_auto_align = 0
+    end,
   },
 
   -- Checkmate: Todo checkboxes for markdown
