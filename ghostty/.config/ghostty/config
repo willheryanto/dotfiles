@@ -15,7 +15,7 @@ font-feature = ss08
 font-feature = ss10
 font-feature = ss11
 
-theme = Kanagawa Dragon
+theme = koda_dark
 
 confirm-close-surface = false
 bold-is-bright = true
