@@ -119,7 +119,6 @@ return {
         fzf.fzf_exec("git status --porcelain=v1 --untracked-files=no | awk '{ key = (substr($0,2,1) != \" \") ? 0 : 1; print key \"\\t\" $0 }' | sort -k1,1 -s", {
           cwd = git_root,
           prompt = "Git> ",
-          preview = "sh -c 'status=\"$1\"; file=\"$2\"; s1=\"${status%?}\"; s2=\"${status#?}\"; if [ \"$s1\" != \" \" ] && [ \"$s2\" != \" \" ]; then git diff --color=always --cached -- \"$file\"; printf \"\\n\"; git diff --color=always -- \"$file\"; elif [ \"$s1\" != \" \" ]; then git diff --color=always --cached -- \"$file\"; else git diff --color=always -- \"$file\"; fi' -- {2} {4}",
           fn_transform = function(x)
             local fields = vim.split(x, "\t")
             local key = fields[1] or ""
@@ -185,7 +184,6 @@ return {
         require("fzf-lua").fzf_exec("git ls-files --others --exclude-standard | awk '{ key = index($0, \"/\") ? 0 : 1; print key \"\\t\" $0 }' | sort -k1,1n -k2,2 -s | cut -f2-", {
           cwd = git_root,
           prompt = "Untracked> ",
-          preview = "bat --style=numbers --color=always {}",
           actions = {
             ["default"] = function(selected)
               local file = selected[1]

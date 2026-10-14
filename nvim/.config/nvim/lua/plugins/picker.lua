@@ -62,6 +62,7 @@ return {
     { "<leader>uC", "<cmd>FzfLua colorschemes<cr>", desc = "Colorscheme with Preview" },
   },
   opts = {
+    previewer = false,
     defaults = {
       git_icons = true,
       file_icons = true,
