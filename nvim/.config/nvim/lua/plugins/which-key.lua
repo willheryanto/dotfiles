@@ -25,6 +25,7 @@ return {
         { "<leader>u", group = "ui" },
         { "<leader>w", group = "windows", proxy = "<c-w>" },
         { "<leader>x", group = "diagnostics/quickfix" },
+        { "<localleader>v", group = "review" },
         { "[", group = "prev" },
         { "]", group = "next" },
         { "g", group = "goto" },
