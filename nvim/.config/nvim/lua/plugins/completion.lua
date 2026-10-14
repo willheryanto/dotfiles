@@ -50,6 +50,7 @@ return {
     },
     sources = {
       default = { "lsp", "path", "snippets", "buffer" },
+      per_filetype = { sql = { "lsp", "buffer" } },
     },
     snippets = {
       preset = "default",
