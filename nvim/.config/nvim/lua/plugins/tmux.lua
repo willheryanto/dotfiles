@@ -1,13 +1,10 @@
 return {
   "christoomey/vim-tmux-navigator",
   lazy = false,
+  init = function()
+    vim.g.tmux_navigator_no_mappings = 1
+  end,
   config = function()
-    -- Normal mode keymaps
-    vim.keymap.set("n", "<C-h>", "<cmd>TmuxNavigateLeft<cr>", { desc = "Navigate left" })
-    vim.keymap.set("n", "<C-j>", "<cmd>TmuxNavigateDown<cr>", { desc = "Navigate down" })
-    vim.keymap.set("n", "<C-k>", "<cmd>TmuxNavigateUp<cr>", { desc = "Navigate up" })
-    vim.keymap.set("n", "<C-l>", "<cmd>TmuxNavigateRight<cr>", { desc = "Navigate right" })
-
     -- Terminal mode: only navigate in non-floating terminals
     local function term_navigate(direction)
       return function()
