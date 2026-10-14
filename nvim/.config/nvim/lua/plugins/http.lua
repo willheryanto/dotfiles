@@ -10,7 +10,9 @@ return {
 
   -- Kulala: HTTP client for .http files
   {
-    "mistweaverco/kulala.nvim",
+    -- upstream mistweaverco/kulala.nvim was deleted; use mirror
+    "actions-marketplace-validations/mistweaverco_kulala.nvim",
+    name = "kulala.nvim",
     ft = "http",
     keys = {
       { "<leader>rr", function() require("kulala").run() end, desc = "Run request" },
